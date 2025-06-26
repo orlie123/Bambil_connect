@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid py-4" style="background: #f6fcf7; min-height: 90vh;">
+  <div class="row justify-content-center">
+    <div class="col-lg-3 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="mb-3">Filter by Category</h5>
+          <form method="get" action="">
+            <div class="d-grid gap-2 mb-2">
+              <a href="?" class="btn btn-outline-dark btn-block">All</a>
+              {% for value, label in categories %}
+                <a href="?category={{ value }}" class="btn btn-block {% if current_category == value %}btn-success text-white{% else %}btn-outline-dark{% endif %}">
+                  {{ label }}
+                </a>
+              {% endfor %}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="mb-4"><i class="fas fa-map-marker-alt me-2"></i>Interactive Map</h4>
+          <div id="map" style="height: 450px; width: 100%; border-radius: 12px; overflow: hidden;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Leaflet JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var map = L.map('map').setView([5.9631, 10.2471], 14);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Marker icons by category
+  var iconMap = {
+    'electricity': L.icon({ iconUrl: 'https://cdn.jsdelivr.net/gh/leaflet-maps-icons/electricity.png', iconSize: [32,32] }),
+    'water': L.icon({ iconUrl: 'https://cdn.jsdelivr.net/gh/leaflet-maps-icons/water.png', iconSize: [32,32] }),
+    'shops': L.icon({ iconUrl: 'https://cdn.jsdelivr.net/gh/leaflet-maps-icons/shop.png', iconSize: [32,32] }),
+    'charging_points': L.icon({ iconUrl: 'https://cdn.jsdelivr.net/gh/leaflet-maps-icons/charging.png', iconSize: [32,32] }),
+    'security': L.icon({ iconUrl: 'https://cdn.jsdelivr.net/gh/leaflet-maps-icons/security.png', iconSize: [32,32] }),
+    'transport': L.icon({ iconUrl: 'https://cdn.jsdelivr.net/gh/leaflet-maps-icons/transport.png', iconSize: [32,32] }),
+    'health': L.icon({ iconUrl: 'https://cdn.jsdelivr.net/gh/leaflet-maps-icons/health.png', iconSize: [32,32] }),
+    'education': L.icon({ iconUrl: 'https://cdn.jsdelivr.net/gh/leaflet-maps-icons/education.png', iconSize: [32,32] }),
+    'other': L.icon({ iconUrl: 'https://cdn.jsdelivr.net/gh/leaflet-maps-icons/other.png', iconSize: [32,32] })
+  };
+
+  // Reports data from Django context (to be rendered as JSON)
+  var reports = [
+    {% for report in reports_with_location %}
+      {
+        'title': `{{ report.title|escapejs }}`,
+        'category': '{{ report.category }}',
+        'category_display': '{{ report.get_category_display }}',
+        'location': `{{ report.location|escapejs }}`,
+        'lat': {{ report.latitude }},
+        'lng': {{ report.longitude }},
+        'url': '{% url "trustwave:report_detail" report.pk %}'
+      },
+    {% endfor %}
+  ];
+
+  reports.forEach(function(report) {
+    var icon = iconMap[report.category] || iconMap['other'];
+    var marker = L.marker([report.lat, report.lng], {icon: icon}).addTo(map);
+    marker.bindPopup('<b>' + report.title + '</b><br>' + report.location + '<br><a href="' + report.url + '" class="btn btn-sm btn-primary mt-2">View Details</a>');
+    marker.bindTooltip(report.title);
+  });
+</script>
+{% endblock %} 

@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+
+{% block title %}Community Alerts - Trust Wave Bambili{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="wave-text">Community Alerts</h1>
+            <p class="text-muted">Stay informed about what's happening in Bambili</p>
+        </div>
+        <div>
+            <a href="{% url 'post_alert' %}" class="btn btn-primary">Post New Alert</a>
+        </div>
+    </div>
+    
+    <!-- Search and Filters -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <form method="get">
+                <div class="row g-3 align-items-end">
+                    <div class="col-12 col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Search alerts..." name="search" value="{{ search_term }}">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <select class="form-select" name="urgency" onchange="this.form.submit()">
+                            <option value="all" {% if selected_urgency == "all" %}selected{% endif %}>All Urgencies</option>
+                            <option value="low" {% if selected_urgency == "low" %}selected{% endif %}>Low Urgency</option>
+                            <option value="medium" {% if selected_urgency == "medium" %}selected{% endif %}>Medium Urgency</option>
+                            <option value="high" {% if selected_urgency == "high" %}selected{% endif %}>High Urgency</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <select class="form-select" name="category" onchange="this.form.submit()">
+                            <option value="all" {% if selected_category == "all" %}selected{% endif %}>All Categories</option>
+                            {% for category in categories %}
+                                <option value="{{ category }}" {% if selected_category == category %}selected{% endif %}>{{ category }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <select class="form-select" name="sort_by" onchange="this.form.submit()">
+                            <option value="date" {% if selected_sort == "date" %}selected{% endif %}>Newest First</option>
+                            <option value="votes" {% if selected_sort == "votes" %}selected{% endif %}>Most Votes</option>
+                            <option value="urgency" {% if selected_sort == "urgency" %}selected{% endif %}>Highest Urgency</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Alerts Display -->
+    {% if alerts %}
+        <div class="row">
+            {% for alert in alerts %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm alert-card urgency-{{ alert.urgency }}">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span class="badge {% if alert.urgency == 'high' %}bg-danger{% elif alert.urgency == 'medium' %}bg-warning{% else %}bg-success{% endif %}">
+                                {{ alert.urgency|title }} Urgency
+                            </span>
+                            <small class="text-muted">{{ alert.created_at|date:"M d, Y" }}</small>
+                        </div>
+                        {% if alert.image %}
+                            <img src="{{ alert.image.url }}" class="card-img-top" alt="{{ alert.title }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ alert.title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ alert.category }}</h6>
+                            <p class="card-text">{{ alert.description|truncatechars:150 }}</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <small class="text-muted"><i class="bi bi-geo-alt-fill"></i> {{ alert.location }}</small>
+                                <small class="text-muted">By: {{ alert.user.full_name }}</small>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center bg-white">
+                            <div class="d-flex align-items-center">
+                                <button class="btn btn-sm btn-outline-primary vote-button" data-alert-id="{{ alert.id }}">
+                                    <i class="bi bi-hand-thumbs-up{% if user.is_authenticated and user in alert.alertvote_set.all.user %}-fill{% endif %}"></i>
+                                    <span class="vote-count">{{ alert.votes }}</span>
+                                </button>
+                            </div>
+                            <span class="badge bg-secondary">{{ alert.category }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Pagination -->
+        {% if alerts.has_other_pages %}
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    {% if alerts.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ alerts.previous_page_number }}&urgency={{ selected_urgency }}&category={{ selected_category }}&sort_by={{ selected_sort }}&search={{ search_term }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    
+                    {% for i in alerts.paginator.page_range %}
+                        {% if alerts.number == i %}
+                            <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ i }}&urgency={{ selected_urgency }}&category={{ selected_category }}&sort_by={{ selected_sort }}&search={{ search_term }}">{{ i }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if alerts.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ alerts.next_page_number }}&urgency={{ selected_urgency }}&category={{ selected_category }}&sort_by={{ selected_sort }}&search={{ search_term }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    {% else %}
+        <div class="text-center p-5 bg-light rounded">
+            <i class="bi bi-exclamation-triangle fs-1 text-muted mb-3"></i>
+            <h3>No alerts found</h3>
+            <p class="text-muted mb-4">
+                {% if search_term or selected_urgency != "all" or selected_category != "all" %}
+                    Try adjusting your search or filters
+                {% else %}
+                    There are currently no alerts in your community
+                {% endif %}
+            </p>
+            <a href="{% url 'post_alert' %}" class="btn btn-primary">Post the first alert</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // AJAX for voting (only if user is authenticated)
+    document.addEventListener('DOMContentLoaded', function() {
+        const voteButtons = document.querySelectorAll('.vote-button');
+        
+        voteButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                {% if user.is_authenticated %}
+                    {% if user.status == 'validated' or user.is_admin %}
+                        const alertId = this.getAttribute('data-alert-id');
+                        const icon = this.querySelector('i');
+                        const countSpan = this.querySelector('.vote-count');
+                        
+                        // Send AJAX request
+                        fetch('{% url "vote_alert" %}', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                                'X-CSRFToken': '{{ csrf_token }}'
+                            },
+                            body: `alert_id=${alertId}`
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                // Update vote count
+                                countSpan.textContent = data.votes;
+                                
+                                // Toggle icon
+                                if (data.action === 'added') {
+                                    icon.classList.remove('bi-hand-thumbs-up');
+                                    icon.classList.add('bi-hand-thumbs-up-fill');
+                                } else {
+                                    icon.classList.remove('bi-hand-thumbs-up-fill');
+                                    icon.classList.add('bi-hand-thumbs-up');
+                                }
+                            } else {
+                                alert(data.error);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error voting:', error);
+                        });
+                    {% else %}
+                        alert('Your account must be validated to vote on alerts.');
+                    {% endif %}
+                {% else %}
+                    window.location.href = '{% url "login" %}';
+                {% endif %}
+            });
+        });
+    });
+</script>
+{% endblock %}

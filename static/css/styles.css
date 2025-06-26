@@ -1,0 +1,75 @@
+:root {
+    --primary-color: #43b97f;
+    --secondary-color: #a7e9c5;
+    --trust-color: #43b97f;
+    --wave-color: #a7e9c5;
+}
+
+.wave-text {
+    background: linear-gradient(90deg, var(--trust-color), var(--wave-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.7rem;
+    color: var(--primary-color) !important;
+}
+
+.hero-section {
+    background: linear-gradient(90deg, var(--trust-color), var(--wave-color));
+    color: white;
+    padding: 5rem 0;
+    border-radius: 18px;
+    box-shadow: var(--shadow-light);
+}
+
+.alert-card {
+    transition: transform 0.2s;
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-light);
+}
+
+.alert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.urgency-high {
+    border-left: 5px solid #ef4444;
+}
+
+.urgency-medium {
+    border-left: 5px solid #ffe066;
+}
+
+.urgency-low {
+    border-left: 5px solid #43b97f;
+}
+
+footer {
+    background-color: var(--soft-white);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    color: var(--deep-green);
+    border-top: 1px solid var(--border-light);
+}
+
+.status-badge-pending {
+    background-color: #ffe066;
+    color: #856404;
+}
+
+.status-badge-validated {
+    background-color: #a7e9c5;
+    color: #1a4d3c;
+}
+
+.status-badge-refused {
+    background-color: #ef4444;
+    color: #fff;
+}

@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}View User Documents - Trust Wave Bambili{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="wave-text">User Documents Review</h1>
+                <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left me-1"></i> Back to Dashboard
+                </a>
+            </div>
+            
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-person-circle me-2"></i>
+                        {{ user.full_name }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Personal Information:</h6>
+                            <ul class="list-unstyled">
+                                <li><strong>Full Name:</strong> {{ user.full_name }}</li>
+                                <li><strong>Email:</strong> {{ user.email }}</li>
+                                <li><strong>Phone:</strong> {{ user.phone_number }}</li>
+                                <li><strong>Profession:</strong> {{ user.get_profession_display }}</li>
+                                <li><strong>Neighborhood:</strong> {{ user.neighborhood }}</li>
+                                <li><strong>Registration Date:</strong> {{ user.created_at|date:"M d, Y H:i" }}</li>
+                                <li><strong>Status:</strong> 
+                                    <span class="badge bg-warning">{{ user.get_status_display }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Account Actions:</h6>
+                            <div class="d-grid gap-2">
+                                <a href="{% url 'validate_user' user.id %}" class="btn btn-success">
+                                    <i class="bi bi-check-circle me-1"></i> Validate Account
+                                </a>
+                                <a href="{% url 'refuse_user' user.id %}" class="btn btn-danger">
+                                    <i class="bi bi-x-circle me-1"></i> Refuse Account
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Documents Section -->
+            <div class="row">
+                <!-- ID Card -->
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-info text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-card-image me-2"></i>
+                                National ID Card
+                            </h6>
+                        </div>
+                        <div class="card-body text-center">
+                            {% if user.id_card %}
+                                <div class="mb-3">
+                                    <img src="{{ user.id_card.url }}" 
+                                         alt="ID Card" 
+                                         class="img-fluid rounded border"
+                                         style="max-height: 300px; cursor: pointer;"
+                                         onclick="openImageModal('{{ user.id_card.url }}', 'National ID Card')">
+                                </div>
+                                <a href="{{ user.id_card.url }}" 
+                                   target="_blank" 
+                                   class="btn btn-primary">
+                                    <i class="bi bi-eye me-1"></i> View Full Size
+                                </a>
+                                <a href="{{ user.id_card.url }}" 
+                                   download 
+                                   class="btn btn-outline-secondary ms-2">
+                                    <i class="bi bi-download me-1"></i> Download
+                                </a>
+                            {% else %}
+                                <div class="text-muted py-5">
+                                    <i class="bi bi-file-earmark-x fs-1"></i>
+                                    <p class="mt-2">No ID card uploaded</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Supporting Document -->
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-secondary text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-file-earmark-text me-2"></i>
+                                Supporting Document
+                            </h6>
+                        </div>
+                        <div class="card-body text-center">
+                            {% if user.supporting_doc %}
+                                <div class="mb-3">
+                                    {% if user.supporting_doc.url|slice:"-4:" == ".pdf" %}
+                                        <div class="py-4">
+                                            <i class="bi bi-file-earmark-pdf fs-1 text-danger"></i>
+                                            <p class="mt-2">PDF Document</p>
+                                        </div>
+                                    {% else %}
+                                        <img src="{{ user.supporting_doc.url }}" 
+                                             alt="Supporting Document" 
+                                             class="img-fluid rounded border"
+                                             style="max-height: 300px; cursor: pointer;"
+                                             onclick="openImageModal('{{ user.supporting_doc.url }}', 'Supporting Document')">
+                                    {% endif %}
+                                </div>
+                                <a href="{{ user.supporting_doc.url }}" 
+                                   target="_blank" 
+                                   class="btn btn-primary">
+                                    <i class="bi bi-eye me-1"></i> View Full Size
+                                </a>
+                                <a href="{{ user.supporting_doc.url }}" 
+                                   download 
+                                   class="btn btn-outline-secondary ms-2">
+                                    <i class="bi bi-download me-1"></i> Download
+                                </a>
+                            {% else %}
+                                <div class="text-muted py-5">
+                                    <i class="bi bi-file-earmark-x fs-1"></i>
+                                    <p class="mt-2">No supporting document uploaded</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Document Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openImageModal(imageSrc, title) {
+    document.getElementById('modalImage').src = imageSrc;
+    document.getElementById('imageModalLabel').textContent = title;
+    new bootstrap.Modal(document.getElementById('imageModal')).show();
+}
+</script>
+{% endblock %} 

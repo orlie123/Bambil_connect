@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - Trust Wave Bambili{% endblock %}
+
+{% block content %}
+<div class="container min-vh-75 d-flex align-items-center justify-content-center py-5">
+    <div class="text-center">
+        <h1 class="display-1 fw-bold text-black-50">404</h1>
+        <h2 class="fs-1 mb-4">Page Not Found</h2>
+        <p class="text-muted mb-5 fs-5 max-w-md mx-auto">
+            Sorry, we couldn't find the page you're looking for.
+        </p>
+        <a href="{% url 'index' %}" class="btn btn-primary btn-lg">Return to Home</a>
+    </div>
+</div>
+{% endblock %}

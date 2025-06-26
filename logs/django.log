@@ -1,0 +1,2137 @@
+INFO 2025-06-20 08:24:22,222 autoreload 5880 140647712019072 Watching for file changes with StatReloader
+ERROR 2025-06-20 08:24:35,730 log 5880 140647332836928 Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/bambili_connect_project/trustwave/views.py", line 64, in home
+    return render(request, 'trustwave/index.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+ERROR 2025-06-20 08:24:35,733 basehttp 5880 140647332836928 "GET / HTTP/1.1" 500 152557
+WARNING 2025-06-20 08:24:36,020 log 5880 140647332836928 Not Found: /favicon.ico
+WARNING 2025-06-20 08:24:36,021 basehttp 5880 140647332836928 "GET /favicon.ico HTTP/1.1" 404 6273
+INFO 2025-06-20 08:25:48,588 basehttp 5880 140647332836928 "GET / HTTP/1.1" 200 17058
+INFO 2025-06-20 08:25:48,626 basehttp 5880 140647332836928 "GET /static/css/base.css HTTP/1.1" 200 7806
+INFO 2025-06-20 08:25:48,628 basehttp 5880 140647324444224 "GET /static/js/main.js HTTP/1.1" 200 11059
+WARNING 2025-06-20 08:25:48,979 log 5880 140647332836928 Not Found: /sw.js
+WARNING 2025-06-20 08:25:48,980 basehttp 5880 140647332836928 "GET /sw.js HTTP/1.1" 404 6255
+ERROR 2025-06-20 08:25:57,241 log 5880 140647332836928 Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django_ratelimit/decorators.py", line 27, in _wrapped
+    return fn(request, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/bambili_connect_project/trustwave/views.py", line 104, in register_view
+    return render(request, 'trustwave/register.html', {'form': form})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+ERROR 2025-06-20 08:25:57,243 basehttp 5880 140647332836928 "GET /register/ HTTP/1.1" 500 188187
+INFO 2025-06-20 08:26:17,430 basehttp 5880 140647332836928 "GET /register/ HTTP/1.1" 200 15708
+WARNING 2025-06-20 08:26:17,608 log 5880 140647332836928 Not Found: /sw.js
+WARNING 2025-06-20 08:26:17,608 basehttp 5880 140647332836928 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:26:36,944 autoreload 5880 140647712019072 /home/ubuntu/bambili_connect_project/bambili_connect/settings.py changed, reloading.
+INFO 2025-06-20 08:26:37,479 autoreload 6048 140593941537408 Watching for file changes with StatReloader
+INFO 2025-06-20 08:28:28,944 basehttp 6048 140593561859648 "GET /login/ HTTP/1.1" 200 9675
+INFO 2025-06-20 08:28:28,977 basehttp 6048 140593561859648 "GET /static/css/base.css HTTP/1.1" 304 0
+INFO 2025-06-20 08:28:28,979 basehttp 6048 140593553466944 "GET /static/js/main.js HTTP/1.1" 304 0
+WARNING 2025-06-20 08:28:29,123 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:28:29,125 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:28:57,676 basehttp 6048 140593561859648 "GET /register/ HTTP/1.1" 200 15708
+WARNING 2025-06-20 08:28:57,809 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:28:57,809 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:30:10,092 basehttp 6048 140593561859648 "GET /login/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 08:30:10,211 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:30:10,212 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:30:11,636 basehttp 6048 140593561859648 "GET /login/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 08:30:11,728 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:30:11,729 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:30:13,642 basehttp 6048 140593561859648 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 08:30:13,726 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:30:13,726 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:30:15,123 basehttp 6048 140593561859648 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 08:30:15,248 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:30:15,248 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:30:36,025 basehttp 6048 140593561859648 "GET /login/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 08:30:36,116 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:30:36,116 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+ERROR 2025-06-20 08:32:44,274 log 6048 140593561859648 Internal Server Error: /reports/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/report_list.html, trustwave/report_list.html
+ERROR 2025-06-20 08:32:44,276 basehttp 6048 140593561859648 "GET /reports/ HTTP/1.1" 500 87765
+WARNING 2025-06-20 08:33:09,398 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:33:09,399 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:33:20,453 basehttp 6048 140593561859648 "GET / HTTP/1.1" 200 17058
+INFO 2025-06-20 08:33:20,470 basehttp 6048 140593553466944 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-20 08:33:20,470 basehttp 6048 140593561859648 "GET /static/css/base.css HTTP/1.1" 304 0
+WARNING 2025-06-20 08:33:20,578 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:33:20,579 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:33:21,747 basehttp 6048 140593561859648 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 08:33:21,857 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:33:21,857 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:36:39,528 basehttp 6048 140593561859648 "GET / HTTP/1.1" 200 17058
+INFO 2025-06-20 08:36:39,558 basehttp 6048 140593561859648 "GET /static/js/main.js HTTP/1.1" 304 0
+WARNING 2025-06-20 08:36:39,664 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:36:39,664 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+ERROR 2025-06-20 08:36:43,382 log 6048 140593561859648 Internal Server Error: /reports/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/report_list.html, trustwave/report_list.html
+ERROR 2025-06-20 08:36:43,383 basehttp 6048 140593561859648 "GET /reports/ HTTP/1.1" 500 87759
+WARNING 2025-06-20 08:37:02,293 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:37:02,293 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+ERROR 2025-06-20 08:37:07,280 log 6048 140593561859648 Internal Server Error: /map/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/bambili_connect_project/trustwave/views.py", line 459, in map_view
+    return render(request, 'trustwave/map_view.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/map_view.html
+ERROR 2025-06-20 08:37:07,281 basehttp 6048 140593561859648 "GET /map/ HTTP/1.1" 500 108984
+WARNING 2025-06-20 08:37:42,506 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:37:42,506 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 08:38:02,048 basehttp 6048 140593561859648 "GET / HTTP/1.1" 200 17058
+INFO 2025-06-20 08:38:02,065 basehttp 6048 140593561859648 "GET /static/css/base.css HTTP/1.1" 304 0
+WARNING 2025-06-20 08:38:02,186 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:38:02,186 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+ERROR 2025-06-20 08:39:25,218 log 6048 140593561859648 Internal Server Error: /reports/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/report_list.html, trustwave/report_list.html
+ERROR 2025-06-20 08:39:25,219 basehttp 6048 140593561859648 "GET /reports/ HTTP/1.1" 500 87759
+WARNING 2025-06-20 08:39:32,337 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:39:32,338 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+ERROR 2025-06-20 08:39:37,034 log 6048 140593561859648 Internal Server Error: /map/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/bambili_connect_project/trustwave/views.py", line 459, in map_view
+    return render(request, 'trustwave/map_view.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/map_view.html
+ERROR 2025-06-20 08:39:37,035 basehttp 6048 140593561859648 "GET /map/ HTTP/1.1" 500 108984
+WARNING 2025-06-20 08:39:53,215 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 08:39:53,215 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+ERROR 2025-06-20 09:01:54,978 log 6048 140593561859648 Internal Server Error: /map/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/bambili_connect_project/trustwave/views.py", line 459, in map_view
+    return render(request, 'trustwave/map_view.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/map_view.html
+ERROR 2025-06-20 09:01:54,979 basehttp 6048 140593561859648 "GET /map/ HTTP/1.1" 500 108833
+INFO 2025-06-20 09:02:09,739 basehttp 6048 140593561859648 "GET /map/ HTTP/1.1" 200 19499
+INFO 2025-06-20 09:02:09,777 basehttp 6048 140593561859648 "GET /static/css/base.css HTTP/1.1" 304 0
+INFO 2025-06-20 09:02:09,782 basehttp 6048 140593561859648 "GET /static/js/main.js HTTP/1.1" 304 0
+WARNING 2025-06-20 09:02:12,228 log 6048 140593561859648 Not Found: /sw.js
+WARNING 2025-06-20 09:02:12,229 basehttp 6048 140593561859648 "GET /sw.js HTTP/1.1" 404 6255
+INFO 2025-06-20 10:28:58,358 autoreload 13936 9508 Watching for file changes with StatReloader
+INFO 2025-06-20 11:01:04,243 autoreload 4272 14940 Watching for file changes with StatReloader
+INFO 2025-06-20 11:05:39,386 autoreload 13484 5952 Watching for file changes with StatReloader
+INFO 2025-06-20 11:06:09,144 basehttp 13484 9732 "GET / HTTP/1.1" 200 17058
+INFO 2025-06-20 11:06:11,151 basehttp 13484 9732 "GET /static/css/base.css HTTP/1.1" 200 7806
+INFO 2025-06-20 11:06:11,190 basehttp 13484 4264 "GET /static/js/main.js HTTP/1.1" 200 11059
+WARNING 2025-06-20 11:06:13,081 log 13484 4264 Not Found: /favicon.ico
+WARNING 2025-06-20 11:06:13,111 log 13484 9732 Not Found: /sw.js
+INFO 2025-06-20 11:06:13,114 basehttp 13484 4264 - Broken pipe from ('127.0.0.1', 63401)
+WARNING 2025-06-20 11:06:13,119 basehttp 13484 9732 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 11:06:20,148 log 13484 9732 Internal Server Error: /reports/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/report_list.html, trustwave/report_list.html
+ERROR 2025-06-20 11:06:20,174 basehttp 13484 9732 "GET /reports/ HTTP/1.1" 500 101083
+INFO 2025-06-20 11:06:24,707 basehttp 13484 9732 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 11:06:25,237 log 13484 9732 Not Found: /sw.js
+WARNING 2025-06-20 11:06:25,250 basehttp 13484 9732 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:06:27,252 basehttp 13484 9732 "GET /map/ HTTP/1.1" 200 19499
+WARNING 2025-06-20 11:06:29,803 log 13484 9732 Not Found: /sw.js
+WARNING 2025-06-20 11:06:29,818 basehttp 13484 9732 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 11:06:49,652 log 13484 9732 Internal Server Error: /reports/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/report_list.html, trustwave/report_list.html
+ERROR 2025-06-20 11:06:49,676 basehttp 13484 9732 "GET /reports/ HTTP/1.1" 500 101087
+WARNING 2025-06-20 11:06:50,121 log 13484 9732 Not Found: /favicon.ico
+INFO 2025-06-20 11:06:50,134 basehttp 13484 9732 - Broken pipe from ('127.0.0.1', 63397)
+WARNING 2025-06-20 11:07:00,904 log 13484 12268 Not Found: /sw.js
+WARNING 2025-06-20 11:07:00,934 basehttp 13484 12268 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 11:07:05,667 log 13484 12268 Internal Server Error: /reports/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/report_list.html, trustwave/report_list.html
+ERROR 2025-06-20 11:07:05,719 basehttp 13484 12268 "GET /reports/ HTTP/1.1" 500 101087
+INFO 2025-06-20 11:07:10,523 basehttp 13484 12268 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 11:07:11,045 log 13484 12268 Not Found: /sw.js
+WARNING 2025-06-20 11:07:11,077 basehttp 13484 12268 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:07:39,175 basehttp 13484 12268 "GET /map/ HTTP/1.1" 200 19499
+WARNING 2025-06-20 11:07:39,962 log 13484 12268 Not Found: /sw.js
+WARNING 2025-06-20 11:07:39,971 basehttp 13484 12268 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 11:07:55,654 log 13484 12268 Internal Server Error: /reports/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/report_list.html, trustwave/report_list.html
+ERROR 2025-06-20 11:07:55,676 basehttp 13484 12268 "GET /reports/ HTTP/1.1" 500 101087
+INFO 2025-06-20 11:08:00,562 basehttp 13484 12268 "GET /map/ HTTP/1.1" 200 19499
+WARNING 2025-06-20 11:08:01,312 log 13484 12268 Not Found: /sw.js
+WARNING 2025-06-20 11:08:01,345 basehttp 13484 12268 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:08:03,263 basehttp 13484 12268 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 11:08:03,770 log 13484 12268 Not Found: /sw.js
+WARNING 2025-06-20 11:08:03,774 basehttp 13484 12268 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 11:08:05,778 log 13484 12268 Internal Server Error: /reports/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/report_list.html, trustwave/report_list.html
+ERROR 2025-06-20 11:08:05,802 basehttp 13484 12268 "GET /reports/ HTTP/1.1" 500 101083
+INFO 2025-06-20 11:10:45,209 basehttp 13484 6840 "GET /reports/ HTTP/1.1" 200 6910
+WARNING 2025-06-20 11:10:45,768 log 13484 6840 Not Found: /sw.js
+WARNING 2025-06-20 11:10:45,825 basehttp 13484 6840 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:11:49,951 basehttp 13484 6840 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 11:11:50,660 log 13484 6840 Not Found: /sw.js
+WARNING 2025-06-20 11:11:50,664 basehttp 13484 6840 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:11:52,800 basehttp 13484 6840 "GET /reports/ HTTP/1.1" 200 6910
+WARNING 2025-06-20 11:11:53,275 log 13484 6840 Not Found: /sw.js
+WARNING 2025-06-20 11:11:53,279 basehttp 13484 6840 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:11:57,988 basehttp 13484 6840 "GET /map/ HTTP/1.1" 200 19499
+WARNING 2025-06-20 11:11:59,478 log 13484 6840 Not Found: /sw.js
+WARNING 2025-06-20 11:11:59,505 basehttp 13484 6840 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:13:48,764 basehttp 13484 6840 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 11:13:49,384 log 13484 6840 Not Found: /favicon.ico
+INFO 2025-06-20 11:13:49,626 basehttp 13484 6840 - Broken pipe from ('127.0.0.1', 63515)
+WARNING 2025-06-20 11:13:49,684 log 13484 5268 Not Found: /sw.js
+WARNING 2025-06-20 11:13:49,723 basehttp 13484 5268 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:14:20,603 basehttp 13484 5268 "GET /register/ HTTP/1.1" 200 15708
+WARNING 2025-06-20 11:14:21,754 log 13484 5268 Not Found: /sw.js
+WARNING 2025-06-20 11:14:21,759 basehttp 13484 5268 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:16:24,778 basehttp 13484 8840 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 11:16:25,556 log 13484 8840 Not Found: /sw.js
+WARNING 2025-06-20 11:16:25,575 basehttp 13484 8840 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:16:31,014 basehttp 13484 8840 "GET /reports/ HTTP/1.1" 200 6910
+WARNING 2025-06-20 11:16:31,495 log 13484 8840 Not Found: /sw.js
+WARNING 2025-06-20 11:16:31,499 basehttp 13484 8840 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:16:33,345 basehttp 13484 8840 "GET /map/ HTTP/1.1" 200 19499
+WARNING 2025-06-20 11:16:34,520 log 13484 8840 Not Found: /sw.js
+WARNING 2025-06-20 11:16:34,525 basehttp 13484 8840 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:16:35,049 basehttp 13484 8840 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 11:16:35,554 log 13484 8840 Not Found: /sw.js
+WARNING 2025-06-20 11:16:35,579 basehttp 13484 8840 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:19:19,888 basehttp 13484 10132 "GET / HTTP/1.1" 200 17058
+INFO 2025-06-20 11:19:20,081 basehttp 13484 10132 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-20 11:19:20,112 basehttp 13484 10132 "GET /static/css/base.css HTTP/1.1" 200 7806
+WARNING 2025-06-20 11:19:20,615 log 13484 10132 Not Found: /sw.js
+WARNING 2025-06-20 11:19:20,623 basehttp 13484 10132 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:19:22,224 basehttp 13484 10132 "GET /reports/ HTTP/1.1" 200 6910
+WARNING 2025-06-20 11:19:22,719 log 13484 10088 Not Found: /sw.js
+WARNING 2025-06-20 11:19:22,727 basehttp 13484 10088 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:19:27,655 basehttp 13484 10132 "GET /map/ HTTP/1.1" 200 19499
+WARNING 2025-06-20 11:19:28,667 log 13484 10088 Not Found: /sw.js
+WARNING 2025-06-20 11:19:28,675 basehttp 13484 10088 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:22:02,882 basehttp 13484 9568 "GET / HTTP/1.1" 200 17058
+WARNING 2025-06-20 11:22:03,439 log 13484 9568 Not Found: /favicon.ico
+INFO 2025-06-20 11:22:03,498 basehttp 13484 9568 - Broken pipe from ('127.0.0.1', 63656)
+WARNING 2025-06-20 11:22:03,566 log 13484 11284 Not Found: /sw.js
+WARNING 2025-06-20 11:22:03,569 basehttp 13484 11284 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:25:54,183 basehttp 13484 7540 "GET /login/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 11:25:54,828 log 13484 7540 Not Found: /sw.js
+WARNING 2025-06-20 11:25:54,838 basehttp 13484 7540 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:25:56,413 basehttp 13484 7540 "GET /map/ HTTP/1.1" 200 19499
+WARNING 2025-06-20 11:25:57,398 log 13484 7540 Not Found: /sw.js
+WARNING 2025-06-20 11:25:57,421 basehttp 13484 7540 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:25:57,725 basehttp 13484 7540 "GET /reports/ HTTP/1.1" 200 6910
+WARNING 2025-06-20 11:25:58,141 log 13484 7540 Not Found: /sw.js
+WARNING 2025-06-20 11:25:58,146 basehttp 13484 7540 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:39:39,421 autoreload 7340 11668 Watching for file changes with StatReloader
+INFO 2025-06-20 11:39:44,854 basehttp 7340 14964 "GET / HTTP/1.1" 200 17058
+INFO 2025-06-20 11:39:45,185 basehttp 7340 14964 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-20 11:39:45,759 basehttp 7340 12532 "GET /static/css/base.css HTTP/1.1" 200 7806
+WARNING 2025-06-20 11:39:46,160 log 7340 14964 Not Found: /sw.js
+WARNING 2025-06-20 11:39:46,165 basehttp 7340 14964 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:39:50,545 basehttp 7340 14964 "GET /login/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 11:39:51,436 log 7340 14964 Not Found: /sw.js
+WARNING 2025-06-20 11:39:51,453 basehttp 7340 14964 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:40:08,069 views 7340 14964 User logged in: orliefepou@gmail.com
+ERROR 2025-06-20 11:40:08,933 log 7340 14964 Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django_ratelimit\decorators.py", line 27, in _wrapped
+    return fn(request, *args, **kw)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 136, in login_view
+    return redirect(next_page)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'dashboard' not found. 'dashboard' is not a valid view function or pattern name.
+ERROR 2025-06-20 11:40:08,964 basehttp 7340 14964 "POST /login/ HTTP/1.1" 500 109732
+INFO 2025-06-20 11:41:35,706 basehttp 7340 14964 "GET /login/ HTTP/1.1" 200 10073
+WARNING 2025-06-20 11:41:37,707 log 7340 14964 Not Found: /sw.js
+WARNING 2025-06-20 11:41:37,991 basehttp 7340 14964 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:41:47,237 autoreload 7340 11668 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py changed, reloading.
+INFO 2025-06-20 11:41:50,804 autoreload 14356 14328 Watching for file changes with StatReloader
+INFO 2025-06-20 11:42:01,173 autoreload 14356 14328 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py changed, reloading.
+INFO 2025-06-20 11:42:06,665 autoreload 1968 2284 Watching for file changes with StatReloader
+WARNING 2025-06-20 11:42:51,317 log 1968 11104 Forbidden (CSRF token from POST incorrect.): /login/
+WARNING 2025-06-20 11:42:51,334 basehttp 1968 11104 "POST /login/ HTTP/1.1" 403 2517
+WARNING 2025-06-20 11:43:23,349 log 1968 11104 Forbidden (CSRF token from POST incorrect.): /login/
+WARNING 2025-06-20 11:43:23,354 basehttp 1968 11104 "POST /login/ HTTP/1.1" 403 2517
+INFO 2025-06-20 11:43:25,845 basehttp 1968 11104 "GET /login/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 11:43:26,340 log 1968 11104 Not Found: /sw.js
+WARNING 2025-06-20 11:43:26,343 basehttp 1968 11104 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 11:47:23,915 autoreload 1968 2284 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py changed, reloading.
+INFO 2025-06-20 12:03:08,624 autoreload 14296 1504 Watching for file changes with StatReloader
+INFO 2025-06-20 12:03:28,224 basehttp 14296 11484 "GET /login/ HTTP/1.1" 200 9675
+INFO 2025-06-20 12:03:28,460 basehttp 14296 11484 "GET /static/css/base.css HTTP/1.1" 304 0
+INFO 2025-06-20 12:03:28,643 basehttp 14296 14404 "GET /static/js/main.js HTTP/1.1" 304 0
+WARNING 2025-06-20 12:03:29,613 log 14296 14404 Not Found: /sw.js
+WARNING 2025-06-20 12:03:29,629 basehttp 14296 14404 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:04:46,250 basehttp 14296 13524 "GET /login/ HTTP/1.1" 200 9675
+INFO 2025-06-20 12:05:15,620 views 14296 13524 User logged in: orliefepou@gmail.com
+INFO 2025-06-20 12:05:16,011 basehttp 14296 13524 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-20 12:05:16,624 basehttp 14296 13524 "GET /dashboard/ HTTP/1.1" 200 16095
+WARNING 2025-06-20 12:05:17,264 log 14296 13524 Not Found: /sw.js
+WARNING 2025-06-20 12:05:17,271 basehttp 14296 13524 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:05:25,829 basehttp 14296 13524 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:05:26,778 log 14296 13524 Not Found: /sw.js
+WARNING 2025-06-20 12:05:26,830 basehttp 14296 13524 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 12:05:34,610 log 14296 13524 Internal Server Error: /submit-report/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django_ratelimit\decorators.py", line 27, in _wrapped
+    return fn(request, *args, **kw)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 303, in submit_report
+    return render(request, 'trustwave/submit_report.html', {'form': form})
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/submit_report.html
+ERROR 2025-06-20 12:05:34,689 basehttp 14296 13524 "GET /submit-report/ HTTP/1.1" 500 110783
+INFO 2025-06-20 12:06:38,552 basehttp 14296 13524 "GET /submit-report/ HTTP/1.1" 200 11087
+WARNING 2025-06-20 12:06:39,500 log 14296 13524 Not Found: /sw.js
+WARNING 2025-06-20 12:06:39,518 basehttp 14296 13524 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:09:20,222 basehttp 14296 12048 "GET /submit-report/ HTTP/1.1" 200 11079
+INFO 2025-06-20 12:11:37,182 autoreload 8524 12700 Watching for file changes with StatReloader
+INFO 2025-06-20 12:16:09,208 autoreload 8524 12700 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\forms.py changed, reloading.
+INFO 2025-06-20 12:16:15,385 autoreload 928 6436 Watching for file changes with StatReloader
+WARNING 2025-06-20 12:17:16,966 base 928 14056 Session data corrupted
+INFO 2025-06-20 12:17:17,052 basehttp 928 14056 "POST /submit-report/ HTTP/1.1" 302 0
+WARNING 2025-06-20 12:17:17,081 base 928 14056 Session data corrupted
+INFO 2025-06-20 12:17:17,235 basehttp 928 14056 "GET /login/?next=/submit-report/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 12:17:18,186 log 928 14056 Not Found: /sw.js
+WARNING 2025-06-20 12:17:18,233 basehttp 928 14056 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 12:17:26,085 base 928 14056 Session data corrupted
+INFO 2025-06-20 12:17:29,528 views 928 14056 User logged in: orliefepou@gmail.com
+INFO 2025-06-20 12:17:29,739 basehttp 928 14056 "POST /login/?next=/submit-report/ HTTP/1.1" 302 0
+INFO 2025-06-20 12:17:30,183 basehttp 928 14056 "GET /submit-report/ HTTP/1.1" 200 11556
+WARNING 2025-06-20 12:17:30,815 log 928 14056 Not Found: /sw.js
+WARNING 2025-06-20 12:17:30,923 basehttp 928 14056 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:17:40,315 basehttp 928 14056 "GET / HTTP/1.1" 200 18091
+WARNING 2025-06-20 12:17:40,951 log 928 14056 Not Found: /sw.js
+WARNING 2025-06-20 12:17:41,052 basehttp 928 14056 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:17:42,962 basehttp 928 14056 "GET /dashboard/ HTTP/1.1" 200 16405
+WARNING 2025-06-20 12:17:43,542 log 928 14056 Not Found: /sw.js
+WARNING 2025-06-20 12:17:43,548 basehttp 928 14056 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:17:57,338 basehttp 928 14056 "GET /submit-report/ HTTP/1.1" 200 11158
+WARNING 2025-06-20 12:17:58,003 log 928 14056 Not Found: /sw.js
+WARNING 2025-06-20 12:17:58,016 basehttp 928 14056 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:18:55,836 views 928 14056 New report created: water is flowing in dowquarter by orliefepou@gmail.com
+ERROR 2025-06-20 12:18:56,173 log 928 14056 Internal Server Error: /submit-report/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django_ratelimit\decorators.py", line 27, in _wrapped
+    return fn(request, *args, **kw)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 299, in submit_report
+    return redirect('report_detail', pk=report.pk)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'report_detail' not found. 'report_detail' is not a valid view function or pattern name.
+ERROR 2025-06-20 12:18:56,263 basehttp 928 14056 "POST /submit-report/ HTTP/1.1" 500 115876
+INFO 2025-06-20 12:19:38,022 autoreload 928 6436 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py changed, reloading.
+INFO 2025-06-20 12:19:42,758 autoreload 8784 11736 Watching for file changes with StatReloader
+WARNING 2025-06-20 12:19:57,942 base 8784 13840 Session data corrupted
+INFO 2025-06-20 12:19:58,152 basehttp 8784 13840 "POST /submit-report/ HTTP/1.1" 302 0
+WARNING 2025-06-20 12:19:58,222 base 8784 13840 Session data corrupted
+INFO 2025-06-20 12:19:58,389 basehttp 8784 13840 "GET /login/?next=/submit-report/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 12:19:59,567 log 8784 13840 Not Found: /sw.js
+WARNING 2025-06-20 12:19:59,643 basehttp 8784 13840 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 12:20:03,799 base 8784 13840 Session data corrupted
+INFO 2025-06-20 12:20:07,233 views 8784 13840 User logged in: orliefepou@gmail.com
+INFO 2025-06-20 12:20:07,407 basehttp 8784 13840 "POST /login/?next=/submit-report/ HTTP/1.1" 302 0
+INFO 2025-06-20 12:20:07,592 basehttp 8784 13840 "GET /submit-report/ HTTP/1.1" 200 11556
+WARNING 2025-06-20 12:20:08,161 log 8784 13840 Not Found: /sw.js
+WARNING 2025-06-20 12:20:08,244 basehttp 8784 13840 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:21:07,436 views 8784 13840 New report created: water is flowing in dowquarter by orliefepou@gmail.com
+INFO 2025-06-20 12:21:07,445 basehttp 8784 13840 "POST /submit-report/ HTTP/1.1" 302 0
+ERROR 2025-06-20 12:21:07,764 log 8784 13840 Internal Server Error: /report/2/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/report_detail.html
+ERROR 2025-06-20 12:21:07,809 basehttp 8784 13840 "GET /report/2/ HTTP/1.1" 500 99305
+INFO 2025-06-20 12:22:04,330 basehttp 8784 13840 "GET /report/2/ HTTP/1.1" 200 9526
+INFO 2025-06-20 12:22:04,555 basehttp 8784 13840 "GET /static/css/base.css HTTP/1.1" 304 0
+INFO 2025-06-20 12:22:04,713 basehttp 8784 5532 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-20 12:22:05,923 basehttp 8784 8276 "GET /media/reports/user_2/login_page_Fepou_orlie.jpg HTTP/1.1" 200 74152
+WARNING 2025-06-20 12:22:06,139 log 8784 8276 Not Found: /sw.js
+WARNING 2025-06-20 12:22:06,148 basehttp 8784 8276 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:23:19,499 basehttp 8784 13840 "GET /report/2/ HTTP/1.1" 200 9101
+INFO 2025-06-20 12:23:19,758 basehttp 8784 8276 "GET /media/reports/user_2/login_page_Fepou_orlie.jpg HTTP/1.1" 304 0
+WARNING 2025-06-20 12:23:20,146 log 8784 8276 Not Found: /sw.js
+WARNING 2025-06-20 12:23:20,161 basehttp 8784 8276 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:23:27,706 basehttp 8784 13840 "GET /report/2/ HTTP/1.1" 200 9101
+WARNING 2025-06-20 12:23:28,260 log 8784 8276 Not Found: /sw.js
+WARNING 2025-06-20 12:23:28,274 basehttp 8784 8276 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:23:45,677 basehttp 8784 13840 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:23:46,940 log 8784 8276 Not Found: /sw.js
+WARNING 2025-06-20 12:23:46,944 basehttp 8784 8276 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:24:02,229 basehttp 8784 13840 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:24:03,177 log 8784 8276 Not Found: /sw.js
+WARNING 2025-06-20 12:24:03,211 basehttp 8784 8276 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:26:10,837 basehttp 8784 4124 "GET /submit-report/?lat=5.973070897398604&lng=10.239343643188478 HTTP/1.1" 200 11158
+WARNING 2025-06-20 12:26:11,910 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:26:12,050 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 12:26:17,557 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:26:17,613 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:27:11,279 basehttp 8784 4124 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:27:12,711 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:27:12,724 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:27:24,402 basehttp 8784 4124 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:27:25,086 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:27:25,111 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:27:34,686 basehttp 8784 4124 "GET /submit-report/ HTTP/1.1" 200 11158
+WARNING 2025-06-20 12:27:35,439 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:27:35,444 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:28:10,501 basehttp 8784 4124 "POST /submit-report/ HTTP/1.1" 200 11343
+WARNING 2025-06-20 12:28:11,141 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:28:11,148 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:28:19,159 basehttp 8784 4124 "POST /submit-report/ HTTP/1.1" 200 11343
+WARNING 2025-06-20 12:28:20,381 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:28:20,384 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:28:32,601 basehttp 8784 4124 "POST /submit-report/ HTTP/1.1" 200 11343
+WARNING 2025-06-20 12:28:33,300 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:28:33,311 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:28:47,269 basehttp 8784 4124 "GET /reports/ HTTP/1.1" 200 8947
+WARNING 2025-06-20 12:28:47,803 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:28:47,810 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:29:01,043 basehttp 8784 4124 "GET /reports/ HTTP/1.1" 200 8947
+WARNING 2025-06-20 12:29:01,505 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:29:01,510 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:29:57,438 basehttp 8784 4124 "GET /reports/ HTTP/1.1" 200 8947
+WARNING 2025-06-20 12:29:58,073 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:29:58,094 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:30:02,124 basehttp 8784 4124 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:30:04,271 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:30:04,274 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:31:42,272 basehttp 8784 4124 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:31:42,877 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:31:42,882 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:32:36,124 basehttp 8784 4124 "GET /reports/ HTTP/1.1" 200 8947
+WARNING 2025-06-20 12:32:36,853 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:32:36,894 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:32:40,583 basehttp 8784 4124 "GET / HTTP/1.1" 200 21747
+WARNING 2025-06-20 12:32:41,194 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:32:41,213 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:32:44,123 basehttp 8784 4124 "GET /dashboard/ HTTP/1.1" 200 21134
+WARNING 2025-06-20 12:32:44,793 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:32:44,828 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 12:32:47,830 log 8784 4124 Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 204, in profile_view
+    return render(request, 'trustwave/profile.html', {'form': form})
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/profile.html
+ERROR 2025-06-20 12:32:47,944 basehttp 8784 4124 "GET /profile/ HTTP/1.1" 500 105226
+WARNING 2025-06-20 12:32:52,861 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:32:52,887 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 12:33:18,296 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:33:18,350 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:33:51,155 basehttp 8784 4124 "GET /submit-report/ HTTP/1.1" 200 11158
+WARNING 2025-06-20 12:33:52,233 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:33:52,353 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 12:33:55,262 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:33:55,281 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:33:56,326 basehttp 8784 4124 "GET /dashboard/ HTTP/1.1" 200 21134
+WARNING 2025-06-20 12:33:56,908 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:33:56,914 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:34:07,144 basehttp 8784 4124 "GET /submit-report/ HTTP/1.1" 200 11158
+WARNING 2025-06-20 12:34:07,874 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:34:07,880 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 12:34:09,659 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:34:09,785 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:36:00,100 basehttp 8784 4124 "GET /reports/ HTTP/1.1" 200 8947
+WARNING 2025-06-20 12:36:00,660 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:36:00,771 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:36:04,849 basehttp 8784 4124 "GET /reports/ HTTP/1.1" 200 8947
+WARNING 2025-06-20 12:36:05,557 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:36:05,578 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:36:08,156 basehttp 8784 4124 "GET / HTTP/1.1" 200 21747
+WARNING 2025-06-20 12:36:08,913 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:36:09,016 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:36:11,466 basehttp 8784 4124 "GET /reports/ HTTP/1.1" 200 8947
+WARNING 2025-06-20 12:36:12,168 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:36:12,188 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:36:14,407 basehttp 8784 4124 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:36:15,834 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:36:15,839 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:36:23,767 basehttp 8784 4124 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:36:24,567 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:36:24,602 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:38:02,960 basehttp 8784 4124 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:38:03,334 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:38:03,336 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:38:18,236 basehttp 8784 4124 "GET / HTTP/1.1" 200 21747
+WARNING 2025-06-20 12:38:19,320 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:38:19,401 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:38:20,453 basehttp 8784 4124 "GET /dashboard/ HTTP/1.1" 200 21134
+WARNING 2025-06-20 12:38:20,906 log 8784 4124 Not Found: /sw.js
+WARNING 2025-06-20 12:38:20,972 basehttp 8784 4124 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:40:41,458 autoreload 8784 11736 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\forms.py changed, reloading.
+INFO 2025-06-20 12:40:48,572 autoreload 11272 15352 Watching for file changes with StatReloader
+WARNING 2025-06-20 12:41:30,968 base 11272 1520 Session data corrupted
+INFO 2025-06-20 12:41:31,102 basehttp 11272 1520 "GET /dashboard/ HTTP/1.1" 302 0
+WARNING 2025-06-20 12:41:31,138 base 11272 1520 Session data corrupted
+INFO 2025-06-20 12:41:31,264 basehttp 11272 1520 "GET /login/?next=/dashboard/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 12:41:32,160 log 11272 1520 Not Found: /sw.js
+WARNING 2025-06-20 12:41:32,166 basehttp 11272 1520 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 12:41:35,435 base 11272 1520 Session data corrupted
+INFO 2025-06-20 12:41:40,088 views 11272 1520 User logged in: orliefepou@gmail.com
+INFO 2025-06-20 12:41:40,422 basehttp 11272 1520 "POST /login/?next=/dashboard/ HTTP/1.1" 302 0
+INFO 2025-06-20 12:41:40,632 basehttp 11272 1520 "GET /dashboard/ HTTP/1.1" 200 22246
+WARNING 2025-06-20 12:41:41,369 log 11272 1520 Not Found: /sw.js
+WARNING 2025-06-20 12:41:41,380 basehttp 11272 1520 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:41:46,954 basehttp 11272 1520 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 12:41:47,846 log 11272 1520 Not Found: /sw.js
+WARNING 2025-06-20 12:41:47,866 basehttp 11272 1520 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:43:58,684 basehttp 11272 12884 "GET /submit-report/?lat=5.960192769068955&lng=10.170164108276369 HTTP/1.1" 200 13229
+INFO 2025-06-20 12:43:58,874 basehttp 11272 12884 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-20 12:43:59,079 basehttp 11272 13604 "GET /static/css/base.css HTTP/1.1" 304 0
+WARNING 2025-06-20 12:43:59,896 log 11272 13604 Not Found: /sw.js
+WARNING 2025-06-20 12:43:59,898 basehttp 11272 13604 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 12:52:24,419 basehttp 11272 840 "GET /submit-report/?lat=5.960192769068955&lng=10.170164108276369 HTTP/1.1" 200 13330
+INFO 2025-06-20 13:03:12,613 autoreload 7488 8528 Watching for file changes with StatReloader
+WARNING 2025-06-20 13:03:49,585 base 7488 2828 Session data corrupted
+INFO 2025-06-20 13:03:49,805 basehttp 7488 2828 "GET /submit-report/?lat=5.960192769068955&lng=10.170164108276369 HTTP/1.1" 302 0
+WARNING 2025-06-20 13:03:49,946 base 7488 2828 Session data corrupted
+INFO 2025-06-20 13:03:50,141 basehttp 7488 2828 "GET /login/?next=/submit-report/%3Flat%3D5.960192769068955%26lng%3D10.170164108276369 HTTP/1.1" 200 9675
+WARNING 2025-06-20 13:03:50,637 log 7488 2828 Not Found: /sw.js
+WARNING 2025-06-20 13:03:50,671 basehttp 7488 2828 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 13:03:53,433 base 7488 2828 Session data corrupted
+INFO 2025-06-20 13:03:58,269 views 7488 2828 User logged in: orliefepou@gmail.com
+INFO 2025-06-20 13:03:58,433 basehttp 7488 2828 "POST /login/?next=/submit-report/%3Flat%3D5.960192769068955%26lng%3D10.170164108276369 HTTP/1.1" 302 0
+INFO 2025-06-20 13:03:58,671 basehttp 7488 2828 "GET /submit-report/?lat=5.960192769068955&lng=10.170164108276369 HTTP/1.1" 200 13728
+WARNING 2025-06-20 13:03:59,798 log 7488 2828 Not Found: /sw.js
+WARNING 2025-06-20 13:03:59,802 basehttp 7488 2828 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 13:04:18,771 basehttp 7488 2828 "GET /reports/ HTTP/1.1" 200 8947
+WARNING 2025-06-20 13:04:19,607 log 7488 2828 Not Found: /sw.js
+WARNING 2025-06-20 13:04:19,735 basehttp 7488 2828 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 13:04:25,083 basehttp 7488 2828 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 13:04:26,156 log 7488 2828 Not Found: /sw.js
+WARNING 2025-06-20 13:04:26,162 basehttp 7488 2828 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 13:05:03,637 basehttp 7488 2828 "GET /submit-report/?lat=5.963269518791812&lng=10.218658447265627 HTTP/1.1" 200 13330
+WARNING 2025-06-20 13:05:05,687 log 7488 2828 Not Found: /sw.js
+WARNING 2025-06-20 13:05:05,723 basehttp 7488 2828 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 13:05:24,758 basehttp 7488 2828 "POST /submit-report/?lat=5.963269518791812&lng=10.218658447265627 HTTP/1.1" 200 13488
+WARNING 2025-06-20 13:05:26,350 log 7488 2828 Not Found: /sw.js
+WARNING 2025-06-20 13:05:26,358 basehttp 7488 2828 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 13:05:54,073 basehttp 7488 2828 "POST /submit-report/?lat=5.963269518791812&lng=10.218658447265627 HTTP/1.1" 200 13488
+WARNING 2025-06-20 13:05:55,051 log 7488 2828 Not Found: /sw.js
+WARNING 2025-06-20 13:05:55,054 basehttp 7488 2828 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 13:06:10,320 basehttp 7488 2828 "GET /reports/ HTTP/1.1" 200 8947
+WARNING 2025-06-20 13:06:11,508 log 7488 2828 Not Found: /sw.js
+WARNING 2025-06-20 13:06:11,641 basehttp 7488 2828 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 13:07:08,381 basehttp 7488 2828 "GET /report/2/ HTTP/1.1" 200 9101
+INFO 2025-06-20 13:07:08,652 basehttp 7488 2828 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-20 13:07:09,595 basehttp 7488 13484 "GET /static/css/base.css HTTP/1.1" 200 7806
+INFO 2025-06-20 13:07:09,608 basehttp 7488 2828 "GET /media/reports/user_2/login_page_Fepou_orlie.jpg HTTP/1.1" 200 74152
+WARNING 2025-06-20 13:07:09,937 log 7488 13484 Not Found: /sw.js
+WARNING 2025-06-20 13:07:09,956 basehttp 7488 13484 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 13:07:21,371 basehttp 7488 2828 "GET /map/ HTTP/1.1" 200 21127
+WARNING 2025-06-20 13:07:22,619 log 7488 13484 Not Found: /sw.js
+WARNING 2025-06-20 13:07:22,622 basehttp 7488 13484 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 13:12:21,209 autoreload 15064 5400 Watching for file changes with StatReloader
+WARNING 2025-06-20 13:13:49,840 base 15064 12764 Session data corrupted
+INFO 2025-06-20 13:13:50,150 basehttp 15064 12764 "GET /submit-report/?lat=5.975732847105757&lng=10.255908966064455 HTTP/1.1" 302 0
+WARNING 2025-06-20 13:13:50,188 base 15064 12764 Session data corrupted
+INFO 2025-06-20 13:13:50,592 basehttp 15064 12764 "GET /login/?next=/submit-report/%3Flat%3D5.975732847105757%26lng%3D10.255908966064455 HTTP/1.1" 200 9675
+WARNING 2025-06-20 13:13:51,903 log 15064 12764 Not Found: /sw.js
+WARNING 2025-06-20 13:13:51,948 basehttp 15064 12764 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 13:13:54,719 base 15064 12764 Session data corrupted
+INFO 2025-06-20 13:13:54,935 basehttp 15064 12764 "GET /register/ HTTP/1.1" 200 15708
+WARNING 2025-06-20 13:13:55,868 log 15064 12764 Not Found: /sw.js
+WARNING 2025-06-20 13:13:55,872 basehttp 15064 12764 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 13:17:02,951 base 15064 11968 Session data corrupted
+INFO 2025-06-20 13:17:02,995 basehttp 15064 11968 "GET /login/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 13:17:03,946 log 15064 11968 Not Found: /sw.js
+WARNING 2025-06-20 13:17:03,988 basehttp 15064 11968 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 13:17:22,273 base 15064 11968 Session data corrupted
+INFO 2025-06-20 13:17:25,450 basehttp 15064 11968 "POST /login/ HTTP/1.1" 200 9884
+WARNING 2025-06-20 13:17:26,161 log 15064 11968 Not Found: /sw.js
+WARNING 2025-06-20 13:17:26,173 basehttp 15064 11968 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 13:17:37,774 base 15064 11968 Session data corrupted
+INFO 2025-06-20 13:17:37,795 basehttp 15064 11968 "GET /login/ HTTP/1.1" 200 9675
+WARNING 2025-06-20 13:17:38,438 log 15064 11968 Not Found: /sw.js
+WARNING 2025-06-20 13:17:38,444 basehttp 15064 11968 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 13:17:45,264 base 15064 11968 Session data corrupted
+INFO 2025-06-20 13:17:45,378 basehttp 15064 11968 "GET /register/ HTTP/1.1" 200 15708
+WARNING 2025-06-20 13:17:46,253 log 15064 11968 Not Found: /sw.js
+WARNING 2025-06-20 13:17:46,262 basehttp 15064 11968 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 13:17:58,290 base 15064 11968 Session data corrupted
+INFO 2025-06-20 13:17:58,391 basehttp 15064 11968 "GET / HTTP/1.1" 200 20935
+WARNING 2025-06-20 13:17:59,059 log 15064 11968 Not Found: /sw.js
+WARNING 2025-06-20 13:17:59,065 basehttp 15064 11968 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 14:58:58,318 basehttp 15064 12036 "GET /register/ HTTP/1.1" 200 14822
+INFO 2025-06-20 15:02:30,207 autoreload 12452 10112 Watching for file changes with StatReloader
+INFO 2025-06-20 15:02:45,828 views 12452 12256 New user registered: lyliefepou@gmail.com
+ERROR 2025-06-20 15:02:46,550 log 12452 12256 Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django_ratelimit\decorators.py", line 27, in _wrapped
+    return fn(request, *args, **kw)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 91, in register_view
+    return redirect('registration_pending')
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'registration_pending' not found. 'registration_pending' is not a valid view function or pattern name.
+ERROR 2025-06-20 15:02:46,806 basehttp 12452 12256 "POST /register/ HTTP/1.1" 500 111141
+INFO 2025-06-20 15:04:33,985 basehttp 12452 12256 "GET /register/ HTTP/1.1" 200 15299
+INFO 2025-06-20 15:04:35,403 basehttp 12452 12256 "GET /static/css/styles.css HTTP/1.1" 200 1455
+WARNING 2025-06-20 15:04:36,133 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:04:36,137 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:04:36,572 basehttp 12452 12256 "GET /register/ HTTP/1.1" 200 14822
+WARNING 2025-06-20 15:04:37,328 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:04:37,379 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:04:43,575 basehttp 12452 12256 "GET / HTTP/1.1" 200 20069
+INFO 2025-06-20 15:04:43,952 basehttp 12452 12256 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-20 15:04:43,955 basehttp 12452 16040 "GET /static/css/base.css HTTP/1.1" 200 8764
+WARNING 2025-06-20 15:04:44,767 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:04:44,776 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:05:11,057 basehttp 12452 12256 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-20 15:05:11,911 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:05:11,982 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:05:17,193 basehttp 12452 12256 "GET / HTTP/1.1" 200 20069
+WARNING 2025-06-20 15:05:17,703 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:05:17,715 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:05:21,829 basehttp 12452 12256 "GET /map/ HTTP/1.1" 200 18613
+WARNING 2025-06-20 15:05:23,121 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:05:23,167 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:05:55,910 basehttp 12452 12256 "GET / HTTP/1.1" 200 20069
+WARNING 2025-06-20 15:05:56,409 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:05:56,441 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:06:02,136 basehttp 12452 12256 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-20 15:06:02,888 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:06:02,900 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:06:12,350 views 12452 12256 User logged in: lyliefepou@gmail.com
+INFO 2025-06-20 15:06:12,725 basehttp 12452 12256 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-20 15:06:12,933 basehttp 12452 12256 "GET /dashboard/ HTTP/1.1" 200 13959
+WARNING 2025-06-20 15:06:13,823 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:06:13,987 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:06:44,658 basehttp 12452 12256 "GET /login/ HTTP/1.1" 302 0
+INFO 2025-06-20 15:06:44,785 basehttp 12452 12256 "GET /dashboard/ HTTP/1.1" 200 13561
+WARNING 2025-06-20 15:06:45,348 log 12452 16040 Not Found: /sw.js
+WARNING 2025-06-20 15:06:45,352 basehttp 12452 16040 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 15:07:00,883 log 12452 12256 Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 158, in logout_view
+    return redirect('home')
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+ERROR 2025-06-20 15:07:01,139 basehttp 12452 12256 "GET /logout/ HTTP/1.1" 500 107919
+INFO 2025-06-20 15:08:50,145 basehttp 12452 12256 "GET /profile/ HTTP/1.1" 302 0
+INFO 2025-06-20 15:08:50,377 basehttp 12452 12256 "GET /login/?next=/profile/ HTTP/1.1" 200 9199
+WARNING 2025-06-20 15:08:52,013 log 12452 12256 Not Found: /sw.js
+WARNING 2025-06-20 15:08:52,027 basehttp 12452 12256 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:08:57,620 autoreload 12452 10112 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py changed, reloading.
+INFO 2025-06-20 15:09:02,804 autoreload 15748 16036 Watching for file changes with StatReloader
+INFO 2025-06-20 15:09:12,228 views 15748 9588 User logged in: orliefepou@gmail.com
+INFO 2025-06-20 15:09:12,597 basehttp 15748 9588 "POST /login/?next=/profile/ HTTP/1.1" 302 0
+ERROR 2025-06-20 15:09:13,151 log 15748 7440 Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 204, in profile_view
+    return render(request, 'trustwave/profile.html', {'form': form})
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/profile.html
+ERROR 2025-06-20 15:09:13,234 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 500 105493
+WARNING 2025-06-20 15:09:20,951 log 15748 7440 Forbidden (CSRF token from POST incorrect.): /login/
+WARNING 2025-06-20 15:09:20,960 basehttp 15748 7440 "POST /login/?next=/profile/ HTTP/1.1" 403 2517
+INFO 2025-06-20 15:09:56,111 basehttp 15748 7440 "GET /login/?next=/profile/ HTTP/1.1" 302 0
+INFO 2025-06-20 15:09:56,473 basehttp 15748 7440 "GET /dashboard/ HTTP/1.1" 200 22690
+WARNING 2025-06-20 15:09:57,396 log 15748 7440 Not Found: /sw.js
+WARNING 2025-06-20 15:09:57,414 basehttp 15748 7440 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 15:10:07,319 log 15748 7440 Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 204, in profile_view
+    return render(request, 'trustwave/profile.html', {'form': form})
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/profile.html
+ERROR 2025-06-20 15:10:07,392 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 500 105227
+ERROR 2025-06-20 15:10:14,010 log 15748 7440 Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 204, in profile_view
+    return render(request, 'trustwave/profile.html', {'form': form})
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/profile.html
+ERROR 2025-06-20 15:10:14,274 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 500 105227
+ERROR 2025-06-20 15:12:01,636 log 15748 7440 Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 204, in profile_view
+    return render(request, 'trustwave/profile.html', {'form': form})
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/profile.html
+ERROR 2025-06-20 15:12:01,935 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 500 105227
+INFO 2025-06-20 15:12:08,093 basehttp 15748 7440 "GET /dashboard/ HTTP/1.1" 200 22292
+WARNING 2025-06-20 15:12:08,698 log 15748 7440 Not Found: /sw.js
+WARNING 2025-06-20 15:12:08,702 basehttp 15748 7440 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 15:12:13,534 log 15748 7440 Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 204, in profile_view
+    return render(request, 'trustwave/profile.html', {'form': form})
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/profile.html
+ERROR 2025-06-20 15:12:13,586 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 500 105227
+WARNING 2025-06-20 15:12:36,351 log 15748 7440 Not Found: /sw.js
+WARNING 2025-06-20 15:12:36,377 basehttp 15748 7440 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:12:46,868 basehttp 15748 7440 "GET /reports/?user=2 HTTP/1.1" 200 7904
+WARNING 2025-06-20 15:12:47,821 log 15748 7440 Not Found: /sw.js
+WARNING 2025-06-20 15:12:47,830 basehttp 15748 7440 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:12:53,135 basehttp 15748 7440 "GET /report/2/ HTTP/1.1" 200 8058
+INFO 2025-06-20 15:12:54,704 basehttp 15748 7440 "GET /media/reports/user_2/login_page_Fepou_orlie.jpg HTTP/1.1" 200 74152
+WARNING 2025-06-20 15:12:54,864 log 15748 7440 Not Found: /sw.js
+WARNING 2025-06-20 15:12:54,868 basehttp 15748 7440 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 15:13:05,905 log 15748 7440 Not Found: /sw.js
+WARNING 2025-06-20 15:13:06,034 basehttp 15748 7440 "GET /sw.js HTTP/1.1" 404 4867
+ERROR 2025-06-20 15:13:11,679 log 15748 7440 Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py", line 204, in profile_view
+    return render(request, 'trustwave/profile.html', {'form': form})
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/profile.html
+ERROR 2025-06-20 15:13:11,835 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 500 105227
+WARNING 2025-06-20 15:13:15,939 log 15748 7440 Not Found: /sw.js
+WARNING 2025-06-20 15:13:15,947 basehttp 15748 7440 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:13:17,846 basehttp 15748 7440 "GET /submit-report/ HTTP/1.1" 200 12287
+WARNING 2025-06-20 15:13:18,812 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:13:18,835 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:13:58,669 basehttp 15748 7440 "GET /submit-report/ HTTP/1.1" 200 12287
+WARNING 2025-06-20 15:14:01,467 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:14:01,755 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 15:14:03,149 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:14:03,151 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:14:06,583 basehttp 15748 7440 "GET /submit-report/ HTTP/1.1" 200 12287
+WARNING 2025-06-20 15:14:07,678 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:14:07,695 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 15:14:10,281 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:14:10,329 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:14:11,655 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-20 15:14:12,469 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:14:12,620 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 15:14:21,814 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:14:21,818 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:14:42,272 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 200 8972
+INFO 2025-06-20 15:14:42,584 basehttp 15748 13156 "GET /static/css/base.css HTTP/1.1" 304 0
+INFO 2025-06-20 15:14:42,585 basehttp 15748 7440 "GET /static/css/styles.css HTTP/1.1" 304 0
+WARNING 2025-06-20 15:14:42,985 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:14:43,012 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:15:01,505 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-20 15:15:02,256 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:15:02,269 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:15:07,041 basehttp 15748 7440 "GET / HTTP/1.1" 200 20724
+WARNING 2025-06-20 15:15:07,807 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:15:07,858 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:15:10,402 basehttp 15748 7440 "GET /submit-report/ HTTP/1.1" 200 12287
+WARNING 2025-06-20 15:15:11,220 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:15:11,291 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:15:56,546 basehttp 15748 7440 "GET /dashboard/ HTTP/1.1" 200 22294
+WARNING 2025-06-20 15:15:57,319 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:15:57,325 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:16:13,841 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-20 15:16:14,521 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:16:14,527 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:16:43,000 basehttp 15748 7440 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-20 15:16:43,587 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:16:43,602 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:16:48,873 basehttp 15748 7440 "GET /report/1/ HTTP/1.1" 200 8047
+WARNING 2025-06-20 15:16:49,601 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:16:49,606 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:18:08,786 basehttp 15748 7440 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-06-20 15:18:09,193 basehttp 15748 7440 "GET / HTTP/1.1" 200 20479
+WARNING 2025-06-20 15:18:10,556 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:18:10,635 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:18:27,457 basehttp 15748 7440 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-20 15:18:28,223 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:18:28,229 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:18:37,130 views 15748 7440 User logged in: lyliefepou@gmail.com
+INFO 2025-06-20 15:18:37,454 basehttp 15748 7440 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-20 15:18:37,732 basehttp 15748 7440 "GET /dashboard/ HTTP/1.1" 200 15376
+WARNING 2025-06-20 15:18:38,631 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:18:38,647 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:19:49,955 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 200 8797
+WARNING 2025-06-20 15:19:51,145 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:19:51,158 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:20:20,129 basehttp 15748 7440 "GET /reports/ HTTP/1.1" 200 7729
+WARNING 2025-06-20 15:20:21,237 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:20:21,244 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:20:30,705 basehttp 15748 7440 "GET / HTTP/1.1" 200 20309
+WARNING 2025-06-20 15:20:31,357 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:20:31,361 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:20:45,425 basehttp 15748 7440 "GET /reports/ HTTP/1.1" 200 7729
+WARNING 2025-06-20 15:20:45,990 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:20:45,995 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:20:56,056 basehttp 15748 7440 "GET /reports/ HTTP/1.1" 200 7729
+WARNING 2025-06-20 15:20:56,515 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:20:56,527 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:21:05,077 basehttp 15748 7440 "GET / HTTP/1.1" 200 20310
+WARNING 2025-06-20 15:21:05,700 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:21:05,721 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:21:08,552 basehttp 15748 7440 "GET /dashboard/ HTTP/1.1" 200 14978
+WARNING 2025-06-20 15:21:09,168 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:21:09,174 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:21:15,568 basehttp 15748 7440 "GET /profile/ HTTP/1.1" 200 8797
+WARNING 2025-06-20 15:21:16,195 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:21:16,201 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:21:46,797 basehttp 15748 7440 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-06-20 15:21:46,928 basehttp 15748 7440 "GET / HTTP/1.1" 200 20465
+WARNING 2025-06-20 15:21:47,644 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:21:47,647 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:21:52,097 basehttp 15748 7440 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-20 15:21:52,884 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:21:52,916 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:21:58,794 basehttp 15748 7440 "GET /register/ HTTP/1.1" 200 14822
+WARNING 2025-06-20 15:21:59,652 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:21:59,691 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:22:08,349 views 15748 7440 User logged in: orliefepou@gmail.com
+INFO 2025-06-20 15:22:08,481 basehttp 15748 7440 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-20 15:22:08,611 basehttp 15748 7440 "GET /dashboard/ HTTP/1.1" 200 23385
+WARNING 2025-06-20 15:22:09,352 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:22:09,377 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:22:33,615 basehttp 15748 7440 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-20 15:22:34,128 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:22:34,133 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:22:48,453 basehttp 15748 7440 "GET /dashboard/ HTTP/1.1" 200 22987
+WARNING 2025-06-20 15:22:49,153 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:22:49,165 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:24:30,602 basehttp 15748 7440 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-20 15:24:31,400 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:24:31,405 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:24:52,172 basehttp 15748 7440 "GET / HTTP/1.1" 200 20722
+WARNING 2025-06-20 15:24:52,935 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:24:53,009 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:25:01,859 basehttp 15748 7440 "GET /dashboard/ HTTP/1.1" 200 22988
+WARNING 2025-06-20 15:25:02,470 log 15748 13156 Not Found: /sw.js
+WARNING 2025-06-20 15:25:02,476 basehttp 15748 13156 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:27:09,595 basehttp 15748 16092 "GET /dashboard/ HTTP/1.1" 200 22988
+INFO 2025-06-20 15:27:09,841 basehttp 15748 16092 "GET /static/css/base.css HTTP/1.1" 304 0
+INFO 2025-06-20 15:27:10,017 basehttp 15748 2492 "GET /static/css/styles.css HTTP/1.1" 304 0
+WARNING 2025-06-20 15:27:10,592 log 15748 2976 Not Found: /sw.js
+WARNING 2025-06-20 15:27:10,642 basehttp 15748 2976 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:27:16,732 basehttp 15748 16092 "GET /dashboard/ HTTP/1.1" 200 22988
+WARNING 2025-06-20 15:27:17,163 log 15748 2976 Not Found: /sw.js
+WARNING 2025-06-20 15:27:17,182 basehttp 15748 2976 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:27:18,856 basehttp 15748 16092 "GET /dashboard/ HTTP/1.1" 200 22988
+WARNING 2025-06-20 15:27:19,261 log 15748 2976 Not Found: /sw.js
+WARNING 2025-06-20 15:27:19,270 basehttp 15748 2976 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:28:37,725 basehttp 15748 16092 "GET /dashboard/ HTTP/1.1" 200 22990
+WARNING 2025-06-20 15:28:38,548 log 15748 2976 Not Found: /sw.js
+WARNING 2025-06-20 15:28:38,563 basehttp 15748 2976 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:28:41,658 basehttp 15748 16092 "GET /dashboard/ HTTP/1.1" 200 22990
+WARNING 2025-06-20 15:28:42,107 log 15748 2976 Not Found: /sw.js
+WARNING 2025-06-20 15:28:42,113 basehttp 15748 2976 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:28:49,109 basehttp 15748 16092 "GET /dashboard/ HTTP/1.1" 200 22990
+WARNING 2025-06-20 15:28:49,565 log 15748 2976 Not Found: /sw.js
+WARNING 2025-06-20 15:28:49,582 basehttp 15748 2976 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:28:54,009 basehttp 15748 16092 "GET /dashboard/ HTTP/1.1" 200 22990
+WARNING 2025-06-20 15:28:54,755 log 15748 2976 Not Found: /sw.js
+WARNING 2025-06-20 15:28:55,006 basehttp 15748 2976 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:31:20,979 basehttp 15748 13912 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-20 15:31:23,519 log 15748 16380 Not Found: /sw.js
+WARNING 2025-06-20 15:31:23,893 basehttp 15748 16380 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:31:26,216 basehttp 15748 13912 "GET / HTTP/1.1" 200 20724
+WARNING 2025-06-20 15:31:26,649 log 15748 16380 Not Found: /sw.js
+WARNING 2025-06-20 15:31:26,652 basehttp 15748 16380 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:33:38,303 autoreload 15748 16036 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py changed, reloading.
+INFO 2025-06-20 15:36:35,716 autoreload 6024 1152 Watching for file changes with StatReloader
+WARNING 2025-06-20 15:36:43,169 base 6024 2104 Session data corrupted
+INFO 2025-06-20 15:36:43,544 basehttp 6024 2104 "GET / HTTP/1.1" 200 20069
+WARNING 2025-06-20 15:36:45,273 log 6024 12836 Not Found: /sw.js
+WARNING 2025-06-20 15:36:45,277 basehttp 6024 12836 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 15:36:54,983 base 6024 2104 Session data corrupted
+INFO 2025-06-20 15:36:55,026 basehttp 6024 2104 "GET / HTTP/1.1" 200 20069
+WARNING 2025-06-20 15:36:55,460 log 6024 12836 Not Found: /sw.js
+WARNING 2025-06-20 15:36:55,482 basehttp 6024 12836 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 15:37:01,858 base 6024 2104 Session data corrupted
+INFO 2025-06-20 15:37:02,122 basehttp 6024 2104 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-20 15:37:02,736 log 6024 12836 Not Found: /sw.js
+WARNING 2025-06-20 15:37:02,743 basehttp 6024 12836 "GET /sw.js HTTP/1.1" 404 4867
+WARNING 2025-06-20 15:37:07,460 base 6024 2104 Session data corrupted
+INFO 2025-06-20 15:37:10,434 views 6024 2104 User logged in: orliefepou@gmail.com
+INFO 2025-06-20 15:37:10,604 basehttp 6024 2104 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-20 15:37:10,766 basehttp 6024 2104 "GET /dashboard/ HTTP/1.1" 200 23381
+WARNING 2025-06-20 15:37:11,432 log 6024 12836 Not Found: /sw.js
+WARNING 2025-06-20 15:37:11,463 basehttp 6024 12836 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:37:43,307 basehttp 6024 2104 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-20 15:37:44,398 log 6024 12836 Not Found: /sw.js
+WARNING 2025-06-20 15:37:44,462 basehttp 6024 12836 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 15:37:51,929 basehttp 6024 2104 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-20 15:37:52,731 log 6024 12836 Not Found: /sw.js
+WARNING 2025-06-20 15:37:52,777 basehttp 6024 12836 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 16:51:26,137 autoreload 6024 1152 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py changed, reloading.
+INFO 2025-06-20 16:51:30,324 autoreload 17368 17372 Watching for file changes with StatReloader
+INFO 2025-06-20 21:15:40,715 autoreload 10364 11152 Watching for file changes with StatReloader
+INFO 2025-06-20 21:16:02,483 basehttp 10364 10752 "GET /login/ HTTP/1.1" 200 8789
+INFO 2025-06-20 21:16:03,304 basehttp 10364 10752 "GET /static/css/styles.css HTTP/1.1" 200 1455
+WARNING 2025-06-20 21:16:03,646 log 10364 10752 Not Found: /sw.js
+WARNING 2025-06-20 21:16:03,653 basehttp 10364 10752 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:16:27,005 views 10364 10752 User logged in: orliefepou@gmail.com
+INFO 2025-06-20 21:16:27,195 basehttp 10364 10752 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-20 21:16:27,697 basehttp 10364 10752 "GET /dashboard/ HTTP/1.1" 200 23410
+WARNING 2025-06-20 21:16:28,277 log 10364 10752 Not Found: /sw.js
+WARNING 2025-06-20 21:16:28,282 basehttp 10364 10752 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:16:38,047 basehttp 10364 10752 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-20 21:16:38,804 log 10364 10752 Not Found: /sw.js
+WARNING 2025-06-20 21:16:38,808 basehttp 10364 10752 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:17:52,151 basehttp 10364 10752 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-20 21:17:52,946 log 10364 10752 Not Found: /sw.js
+WARNING 2025-06-20 21:17:52,982 basehttp 10364 10752 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:18:19,391 basehttp 10364 10752 "GET /submit-report/ HTTP/1.1" 200 12287
+WARNING 2025-06-20 21:18:20,480 log 10364 9288 Not Found: /sw.js
+WARNING 2025-06-20 21:18:20,514 basehttp 10364 9288 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:19:03,043 basehttp 10364 10752 "POST /submit-report/ HTTP/1.1" 200 12457
+WARNING 2025-06-20 21:19:03,862 log 10364 9288 Not Found: /sw.js
+WARNING 2025-06-20 21:19:03,868 basehttp 10364 9288 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:19:13,003 basehttp 10364 10752 "GET / HTTP/1.1" 200 20711
+WARNING 2025-06-20 21:19:13,515 log 10364 9288 Not Found: /sw.js
+WARNING 2025-06-20 21:19:13,524 basehttp 10364 9288 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:19:20,832 basehttp 10364 10752 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-20 21:19:21,455 log 10364 9288 Not Found: /sw.js
+WARNING 2025-06-20 21:19:21,462 basehttp 10364 9288 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:19:36,210 basehttp 10364 10752 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-20 21:19:36,623 log 10364 9288 Not Found: /sw.js
+WARNING 2025-06-20 21:19:36,637 basehttp 10364 9288 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:19:47,893 basehttp 10364 10752 "GET /dashboard/ HTTP/1.1" 200 22998
+WARNING 2025-06-20 21:19:48,553 log 10364 9288 Not Found: /sw.js
+WARNING 2025-06-20 21:19:48,562 basehttp 10364 9288 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:19:52,070 basehttp 10364 10752 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-20 21:19:52,706 log 10364 9288 Not Found: /sw.js
+WARNING 2025-06-20 21:19:52,732 basehttp 10364 9288 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-20 21:20:20,981 basehttp 10364 10752 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-20 21:20:21,871 log 10364 9288 Not Found: /sw.js
+WARNING 2025-06-20 21:20:21,888 basehttp 10364 9288 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 05:30:39,565 basehttp 10364 8944 "GET /submit-report/?lat=5.975449722545733&lng=10.243184566497805 HTTP/1.1" 302 0
+INFO 2025-06-21 05:30:39,874 basehttp 10364 8944 "GET /login/?next=/submit-report/%3Flat%3D5.975449722545733%26lng%3D10.243184566497805 HTTP/1.1" 200 8789
+INFO 2025-06-21 05:30:40,219 basehttp 10364 10880 "GET /static/css/styles.css HTTP/1.1" 304 0
+INFO 2025-06-21 05:30:40,226 basehttp 10364 7748 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-21 05:30:40,621 basehttp 10364 8944 "GET /static/css/base.css HTTP/1.1" 200 8764
+WARNING 2025-06-21 05:30:42,114 log 10364 10880 Not Found: /sw.js
+WARNING 2025-06-21 05:30:42,116 basehttp 10364 10880 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 05:30:56,826 views 10364 8944 User logged in: lyliefepou@gmail.com
+INFO 2025-06-21 05:30:57,172 basehttp 10364 8944 "POST /login/?next=/submit-report/%3Flat%3D5.975449722545733%26lng%3D10.243184566497805 HTTP/1.1" 302 0
+INFO 2025-06-21 05:30:57,187 basehttp 10364 8944 "GET /submit-report/?lat=5.975449722545733&lng=10.243184566497805 HTTP/1.1" 302 0
+INFO 2025-06-21 05:30:57,242 basehttp 10364 8944 "GET /dashboard/ HTTP/1.1" 200 17185
+WARNING 2025-06-21 05:30:57,476 log 10364 10880 Not Found: /sw.js
+WARNING 2025-06-21 05:30:57,478 basehttp 10364 10880 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 05:31:15,808 basehttp 10364 8944 "GET / HTTP/1.1" 200 20313
+WARNING 2025-06-21 05:31:16,203 log 10364 10880 Not Found: /sw.js
+WARNING 2025-06-21 05:31:16,206 basehttp 10364 10880 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 05:32:42,365 basehttp 10364 8944 "GET / HTTP/1.1" 200 20313
+WARNING 2025-06-21 05:32:42,977 log 10364 10880 Not Found: /sw.js
+WARNING 2025-06-21 05:32:42,980 basehttp 10364 10880 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 09:08:31,441 autoreload 10364 11152 C:\Users\LENOVO PRO\Desktop\bambili_connect_project\trustwave\views.py changed, reloading.
+INFO 2025-06-21 09:09:52,790 autoreload 12932 12968 Watching for file changes with StatReloader
+INFO 2025-06-21 14:07:02,203 autoreload 11340 11316 Watching for file changes with StatReloader
+INFO 2025-06-21 14:08:34,149 basehttp 11340 10288 "GET / HTTP/1.1" 200 20057
+INFO 2025-06-21 14:08:34,794 basehttp 11340 12384 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-21 14:08:35,229 basehttp 11340 10288 "GET /static/css/base.css HTTP/1.1" 200 8764
+INFO 2025-06-21 14:08:35,287 basehttp 11340 12996 "GET /static/css/styles.css HTTP/1.1" 200 1455
+WARNING 2025-06-21 14:08:37,465 log 11340 12996 Not Found: /favicon.ico
+WARNING 2025-06-21 14:08:37,471 log 11340 12384 Not Found: /sw.js
+INFO 2025-06-21 14:08:37,476 basehttp 11340 12996 - Broken pipe from ('127.0.0.1', 51315)
+WARNING 2025-06-21 14:08:37,481 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:08:44,595 basehttp 11340 10288 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-21 14:08:45,333 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:08:45,351 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:08:57,919 views 11340 10288 User logged in: orliefepou@gmail.com
+INFO 2025-06-21 14:08:58,136 basehttp 11340 10288 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-21 14:08:58,320 basehttp 11340 10288 "GET /dashboard/ HTTP/1.1" 200 23360
+WARNING 2025-06-21 14:08:58,601 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:08:58,604 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:09:06,713 basehttp 11340 10288 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-21 14:09:07,366 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:09:07,369 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:09:38,737 basehttp 11340 10288 "GET /login/ HTTP/1.1" 302 0
+INFO 2025-06-21 14:09:39,035 basehttp 11340 10288 "GET /dashboard/ HTTP/1.1" 200 22949
+WARNING 2025-06-21 14:09:39,547 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:09:39,551 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:09:52,854 basehttp 11340 10288 "GET /dashboard/ HTTP/1.1" 200 22949
+WARNING 2025-06-21 14:09:53,320 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:09:53,328 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:09:56,515 basehttp 11340 10288 "GET / HTTP/1.1" 200 20712
+WARNING 2025-06-21 14:09:57,001 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:09:57,004 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:09:58,417 basehttp 11340 10288 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-21 14:09:58,783 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:09:58,786 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:10:00,231 basehttp 11340 10288 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-21 14:10:02,240 log 11340 12384 Not Found: /favicon.ico
+WARNING 2025-06-21 14:10:02,244 basehttp 11340 12384 "GET /favicon.ico HTTP/1.1" 404 4885
+WARNING 2025-06-21 14:10:03,673 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:10:03,676 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:10:08,603 basehttp 11340 10288 "GET / HTTP/1.1" 200 20712
+WARNING 2025-06-21 14:10:09,433 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:10:09,536 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:10:11,114 basehttp 11340 10288 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-21 14:10:11,528 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:10:11,533 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:10:18,062 basehttp 11340 10288 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-21 14:10:18,523 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:10:18,535 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:10:20,190 basehttp 11340 10288 "GET / HTTP/1.1" 200 20712
+WARNING 2025-06-21 14:10:20,805 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:10:20,813 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:10:37,697 basehttp 11340 10288 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-21 14:10:38,259 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:10:38,268 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:12:30,970 basehttp 11340 10288 "GET / HTTP/1.1" 200 20712
+WARNING 2025-06-21 14:12:31,513 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:12:31,536 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 14:12:31,792 basehttp 11340 10288 "GET / HTTP/1.1" 200 20712
+WARNING 2025-06-21 14:12:32,318 log 11340 12384 Not Found: /sw.js
+WARNING 2025-06-21 14:12:32,322 basehttp 11340 12384 "GET /sw.js HTTP/1.1" 404 4867
+INFO 2025-06-21 18:35:33,572 autoreload 8116 1444 Watching for file changes with StatReloader
+INFO 2025-06-21 18:36:09,803 basehttp 8116 5504 - Broken pipe from ('127.0.0.1', 54020)
+INFO 2025-06-21 18:36:09,804 basehttp 8116 11456 "GET / HTTP/1.1" 200 20059
+INFO 2025-06-21 18:36:10,361 basehttp 8116 7580 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-21 18:36:11,115 basehttp 8116 11456 "GET /static/css/base.css HTTP/1.1" 200 8764
+INFO 2025-06-21 18:36:11,123 basehttp 8116 7436 "GET /static/css/styles.css HTTP/1.1" 200 1455
+WARNING 2025-06-21 18:36:11,987 log 8116 7580 Not Found: /sw.js
+WARNING 2025-06-21 18:36:12,012 basehttp 8116 7580 "GET /sw.js HTTP/1.1" 404 5281
+WARNING 2025-06-21 18:36:12,064 log 8116 7436 Not Found: /favicon.ico
+INFO 2025-06-21 18:36:12,081 basehttp 8116 7436 - Broken pipe from ('127.0.0.1', 54022)
+INFO 2025-06-21 18:36:17,090 basehttp 8116 11456 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-21 18:36:18,053 log 8116 7580 Not Found: /sw.js
+WARNING 2025-06-21 18:36:18,061 basehttp 8116 7580 "GET /sw.js HTTP/1.1" 404 5281
+INFO 2025-06-21 18:36:29,081 views 8116 11456 User logged in: orliefepou@gmail.com
+INFO 2025-06-21 18:36:29,315 basehttp 8116 11456 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-21 18:36:29,485 basehttp 8116 11456 "GET /dashboard/ HTTP/1.1" 200 23345
+WARNING 2025-06-21 18:36:30,205 log 8116 7580 Not Found: /sw.js
+WARNING 2025-06-21 18:36:30,241 basehttp 8116 7580 "GET /sw.js HTTP/1.1" 404 5281
+INFO 2025-06-21 18:36:40,693 basehttp 8116 11456 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-21 18:36:41,236 log 8116 7580 Not Found: /sw.js
+WARNING 2025-06-21 18:36:41,240 basehttp 8116 7580 "GET /sw.js HTTP/1.1" 404 5281
+INFO 2025-06-21 18:36:48,397 basehttp 8116 11456 "GET /dashboard/ HTTP/1.1" 200 22947
+WARNING 2025-06-21 18:36:48,951 log 8116 7580 Not Found: /sw.js
+WARNING 2025-06-21 18:36:48,958 basehttp 8116 7580 "GET /sw.js HTTP/1.1" 404 5281
+INFO 2025-06-21 18:36:53,686 basehttp 8116 11456 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-21 18:36:54,221 log 8116 7580 Not Found: /sw.js
+WARNING 2025-06-21 18:36:54,235 basehttp 8116 7580 "GET /sw.js HTTP/1.1" 404 5281
+INFO 2025-06-21 18:36:59,441 basehttp 8116 11456 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-21 18:37:00,822 log 8116 7580 Not Found: /sw.js
+WARNING 2025-06-21 18:37:00,856 basehttp 8116 7580 "GET /sw.js HTTP/1.1" 404 5281
+INFO 2025-06-21 18:37:03,735 basehttp 8116 11456 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-21 18:37:04,229 log 8116 7580 Not Found: /sw.js
+WARNING 2025-06-21 18:37:04,238 basehttp 8116 7580 "GET /sw.js HTTP/1.1" 404 5281
+INFO 2025-06-21 18:37:06,258 basehttp 8116 11456 "GET / HTTP/1.1" 200 20714
+WARNING 2025-06-21 18:37:06,849 log 8116 7580 Not Found: /sw.js
+WARNING 2025-06-21 18:37:06,856 basehttp 8116 7580 "GET /sw.js HTTP/1.1" 404 5281
+INFO 2025-06-24 18:10:46,853 autoreload 3129 139802194764416 Watching for file changes with StatReloader
+INFO 2025-06-24 18:11:15,542 basehttp 3129 139801815676480 "GET / HTTP/1.1" 200 20061
+INFO 2025-06-24 18:11:15,594 basehttp 3129 139801815676480 "GET /static/css/base.css HTTP/1.1" 200 8764
+INFO 2025-06-24 18:11:15,594 basehttp 3129 139801722353216 "GET /static/js/main.js HTTP/1.1" 200 11059
+INFO 2025-06-24 18:11:15,595 basehttp 3129 139801806235200 "GET /static/css/styles.css HTTP/1.1" 200 1455
+WARNING 2025-06-24 18:11:15,896 log 3129 139801806235200 Not Found: /favicon.ico
+WARNING 2025-06-24 18:11:15,897 basehttp 3129 139801806235200 "GET /favicon.ico HTTP/1.1" 404 7204
+WARNING 2025-06-24 18:11:15,902 log 3129 139801722353216 Not Found: /sw.js
+WARNING 2025-06-24 18:11:15,902 basehttp 3129 139801722353216 "GET /sw.js HTTP/1.1" 404 7186
+INFO 2025-06-24 18:11:22,815 basehttp 3129 139801722353216 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-24 18:11:23,032 log 3129 139801722353216 Not Found: /sw.js
+WARNING 2025-06-24 18:11:23,032 basehttp 3129 139801722353216 "GET /sw.js HTTP/1.1" 404 7186
+WARNING 2025-06-24 18:11:55,511 log 3129 139801722353216 Forbidden (Origin checking failed - https://8000-ih7qe8aj510xppunp72f9-4a1bc7ee.manusvm.computer does not match any trusted origins.): /login/
+WARNING 2025-06-24 18:11:55,511 basehttp 3129 139801722353216 "POST /login/ HTTP/1.1" 403 2593
+INFO 2025-06-24 18:12:04,650 basehttp 3129 139801722353216 "GET /admin-dashboard/ HTTP/1.1" 302 0
+INFO 2025-06-24 18:12:04,670 basehttp 3129 139801722353216 "GET /admin/login/?next=/admin-dashboard/ HTTP/1.1" 200 4211
+INFO 2025-06-24 18:12:04,695 basehttp 3129 139801722353216 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-06-24 18:12:04,697 basehttp 3129 139801806235200 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-06-24 18:12:04,704 basehttp 3129 139801815676480 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-06-24 18:12:04,705 basehttp 3129 139801806235200 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-06-24 18:12:04,706 basehttp 3129 139801713960512 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-06-24 18:12:04,708 basehttp 3129 139801722353216 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-06-24 18:12:04,718 basehttp 3129 139801722353216 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2025-06-24 18:12:30,072 log 3129 139801722353216 Forbidden (Origin checking failed - https://8000-ih7qe8aj510xppunp72f9-4a1bc7ee.manusvm.computer does not match any trusted origins.): /admin/login/
+WARNING 2025-06-24 18:12:30,073 basehttp 3129 139801722353216 "POST /admin/login/?next=/admin-dashboard/ HTTP/1.1" 403 2593
+INFO 2025-06-24 20:21:44,553 autoreload 10384 1272 Watching for file changes with StatReloader
+INFO 2025-06-24 20:22:22,972 basehttp 10384 7212 "GET / HTTP/1.1" 200 20061
+INFO 2025-06-24 20:22:24,108 basehttp 10384 2112 "GET /static/css/styles.css HTTP/1.1" 200 1455
+INFO 2025-06-24 20:22:24,132 basehttp 10384 7212 "GET /static/css/base.css HTTP/1.1" 200 8764
+INFO 2025-06-24 20:22:24,207 basehttp 10384 13296 "GET /static/js/main.js HTTP/1.1" 200 11059
+WARNING 2025-06-24 20:22:25,786 log 10384 2112 Not Found: /sw.js
+WARNING 2025-06-24 20:22:25,795 log 10384 13296 Not Found: /favicon.ico
+WARNING 2025-06-24 20:22:25,797 basehttp 10384 2112 "GET /sw.js HTTP/1.1" 404 5502
+WARNING 2025-06-24 20:22:25,801 basehttp 10384 13296 "GET /favicon.ico HTTP/1.1" 404 5520
+INFO 2025-06-24 20:22:42,930 basehttp 10384 7212 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-24 20:22:43,565 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:22:43,581 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-24 20:22:48,829 basehttp 10384 7212 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-24 20:22:49,199 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:22:49,204 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-24 20:23:24,258 views 10384 7212 User logged in: orliefepou@gmail.com
+INFO 2025-06-24 20:23:24,419 basehttp 10384 7212 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-24 20:23:24,666 basehttp 10384 7212 "GET /dashboard/ HTTP/1.1" 200 23311
+WARNING 2025-06-24 20:23:25,185 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:23:25,191 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-24 20:23:32,291 basehttp 10384 7212 "GET /dashboard/ HTTP/1.1" 200 22913
+WARNING 2025-06-24 20:23:32,644 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:23:32,649 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-24 20:23:37,641 basehttp 10384 7212 "GET /dashboard/ HTTP/1.1" 200 22913
+WARNING 2025-06-24 20:23:37,981 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:23:37,987 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-24 20:23:39,644 basehttp 10384 7212 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-24 20:23:40,106 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:23:40,118 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-24 20:23:41,661 basehttp 10384 7212 "GET /dashboard/ HTTP/1.1" 200 22913
+WARNING 2025-06-24 20:23:42,079 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:23:42,083 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-24 20:23:44,145 basehttp 10384 7212 "GET /dashboard/ HTTP/1.1" 200 22913
+WARNING 2025-06-24 20:23:44,579 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:23:44,583 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-24 20:24:02,615 basehttp 10384 7212 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-24 20:24:03,071 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:24:03,077 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-24 20:24:17,152 basehttp 10384 7212 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-24 20:24:17,598 log 10384 13296 Not Found: /sw.js
+WARNING 2025-06-24 20:24:17,607 basehttp 10384 13296 "GET /sw.js HTTP/1.1" 404 5502
+INFO 2025-06-25 11:43:02,601 autoreload 12560 13536 Watching for file changes with StatReloader
+INFO 2025-06-25 11:44:42,644 basehttp 12560 9744 "GET /map/ HTTP/1.1" 200 18613
+INFO 2025-06-25 11:44:42,896 basehttp 12560 8800 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-06-25 11:44:43,452 basehttp 12560 9744 "GET /static/css/base.css HTTP/1.1" 200 8764
+INFO 2025-06-25 11:44:43,486 basehttp 12560 12284 "GET /static/css/styles.css HTTP/1.1" 200 1455
+WARNING 2025-06-25 11:44:44,962 log 12560 8800 Not Found: /sw.js
+WARNING 2025-06-25 11:44:44,973 log 12560 12284 Not Found: /favicon.ico
+WARNING 2025-06-25 11:44:44,981 basehttp 12560 8800 "GET /sw.js HTTP/1.1" 404 7148
+INFO 2025-06-25 11:44:44,988 basehttp 12560 12284 - Broken pipe from ('127.0.0.1', 55708)
+INFO 2025-06-25 11:44:49,190 basehttp 12560 9744 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-25 11:44:49,919 log 12560 8800 Not Found: /sw.js
+WARNING 2025-06-25 11:44:49,929 basehttp 12560 8800 "GET /sw.js HTTP/1.1" 404 7148
+INFO 2025-06-25 11:45:08,107 views 12560 9744 User logged in: orliefepou@gmail.com
+INFO 2025-06-25 11:45:08,396 basehttp 12560 9744 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-25 11:45:08,742 basehttp 12560 9744 "GET /dashboard/ HTTP/1.1" 200 23324
+WARNING 2025-06-25 11:45:09,404 log 12560 8800 Not Found: /sw.js
+WARNING 2025-06-25 11:45:09,439 basehttp 12560 8800 "GET /sw.js HTTP/1.1" 404 7148
+INFO 2025-06-25 11:45:17,696 basehttp 12560 9744 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-25 11:45:18,243 log 12560 8800 Not Found: /sw.js
+WARNING 2025-06-25 11:45:18,253 basehttp 12560 8800 "GET /sw.js HTTP/1.1" 404 7148
+INFO 2025-06-25 11:45:24,550 basehttp 12560 9744 "GET /dashboard/ HTTP/1.1" 200 22926
+WARNING 2025-06-25 11:45:24,973 log 12560 8800 Not Found: /sw.js
+WARNING 2025-06-25 11:45:24,981 basehttp 12560 8800 "GET /sw.js HTTP/1.1" 404 7148
+INFO 2025-06-25 11:45:28,750 basehttp 12560 9744 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-25 11:45:29,218 log 12560 8800 Not Found: /sw.js
+WARNING 2025-06-25 11:45:29,226 basehttp 12560 8800 "GET /sw.js HTTP/1.1" 404 7148
+INFO 2025-06-25 11:45:48,379 basehttp 12560 9744 "GET / HTTP/1.1" 200 20718
+WARNING 2025-06-25 11:45:49,020 log 12560 8800 Not Found: /sw.js
+WARNING 2025-06-25 11:45:49,032 basehttp 12560 8800 "GET /sw.js HTTP/1.1" 404 7148
+ERROR 2025-06-25 11:52:46,006 log 12560 13944 Internal Server Error: /admin-dashboard/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\bambili_connect\trustwave\views.py", line 490, in admin_dashboard
+    return render(request, 'trustwave/admin_dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/admin_dashboard.html
+ERROR 2025-06-25 11:52:46,060 basehttp 12560 13944 "GET /admin-dashboard/ HTTP/1.1" 500 109295
+ERROR 2025-06-25 12:00:59,318 log 12560 11148 Internal Server Error: /admin-dashboard/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\bambili_connect\trustwave\views.py", line 490, in admin_dashboard
+    return render(request, 'trustwave/admin_dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'view_user_documents' not found. 'view_user_documents' is not a valid view function or pattern name.
+ERROR 2025-06-25 12:00:59,432 basehttp 12560 11148 "GET /admin-dashboard/ HTTP/1.1" 500 217154
+ERROR 2025-06-25 12:01:04,440 log 12560 11148 Internal Server Error: /admin-dashboard/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\bambili_connect\trustwave\views.py", line 490, in admin_dashboard
+    return render(request, 'trustwave/admin_dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\AppData\Roaming\Python\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'view_user_documents' not found. 'view_user_documents' is not a valid view function or pattern name.
+ERROR 2025-06-25 12:01:04,642 basehttp 12560 11148 "GET /admin-dashboard/ HTTP/1.1" 500 217154
+INFO 2025-06-25 12:07:48,142 basehttp 12560 2856 "GET /admin-dashboard/ HTTP/1.1" 200 15230
+WARNING 2025-06-25 12:07:48,941 log 12560 2856 Not Found: /sw.js
+WARNING 2025-06-25 12:07:48,941 basehttp 12560 2856 "GET /sw.js HTTP/1.1" 404 7148
+WARNING 2025-06-25 12:08:14,968 log 12560 2856 Not Found: /admin/view-user-documents/3/
+WARNING 2025-06-25 12:08:14,968 basehttp 12560 2856 "GET /admin/view-user-documents/3/ HTTP/1.1" 404 7571
+INFO 2025-06-25 12:09:26,498 autoreload 12560 13536 F:\bambili_connect\trustwave\urls.py changed, reloading.
+INFO 2025-06-25 12:09:33,288 autoreload 9240 10912 Watching for file changes with StatReloader
+WARNING 2025-06-25 12:09:56,930 base 9240 6728 Session data corrupted
+INFO 2025-06-25 12:09:56,995 basehttp 9240 6728 "GET / HTTP/1.1" 200 20063
+WARNING 2025-06-25 12:09:57,612 log 9240 6728 Not Found: /sw.js
+WARNING 2025-06-25 12:09:57,615 basehttp 9240 6728 "GET /sw.js HTTP/1.1" 404 7160
+WARNING 2025-06-25 12:09:59,813 base 9240 6728 Session data corrupted
+INFO 2025-06-25 12:09:59,881 basehttp 9240 6728 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-25 12:10:00,443 log 9240 6728 Not Found: /sw.js
+WARNING 2025-06-25 12:10:00,449 basehttp 9240 6728 "GET /sw.js HTTP/1.1" 404 7160
+WARNING 2025-06-25 12:10:07,932 base 9240 6728 Session data corrupted
+INFO 2025-06-25 12:10:08,077 basehttp 9240 6728 "GET /register/ HTTP/1.1" 200 14822
+WARNING 2025-06-25 12:10:08,983 log 9240 6728 Not Found: /sw.js
+WARNING 2025-06-25 12:10:09,034 basehttp 9240 6728 "GET /sw.js HTTP/1.1" 404 7160
+WARNING 2025-06-25 12:10:29,858 base 9240 6728 Session data corrupted
+INFO 2025-06-25 12:10:29,897 basehttp 9240 6728 "GET / HTTP/1.1" 200 20063
+WARNING 2025-06-25 12:10:30,351 log 9240 6728 Not Found: /sw.js
+WARNING 2025-06-25 12:10:30,351 basehttp 9240 6728 "GET /sw.js HTTP/1.1" 404 7160
+WARNING 2025-06-25 12:10:33,089 base 9240 6728 Session data corrupted
+INFO 2025-06-25 12:10:33,112 basehttp 9240 6728 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-25 12:10:33,615 log 9240 6728 Not Found: /sw.js
+WARNING 2025-06-25 12:10:33,625 basehttp 9240 6728 "GET /sw.js HTTP/1.1" 404 7160
+WARNING 2025-06-25 12:10:47,922 base 9240 6728 Session data corrupted
+INFO 2025-06-25 12:10:55,849 views 9240 6728 User logged in: orliefepou@gmail.com
+INFO 2025-06-25 12:10:56,067 basehttp 9240 6728 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-25 12:10:56,203 basehttp 9240 6728 "GET /dashboard/ HTTP/1.1" 200 23317
+WARNING 2025-06-25 12:10:57,034 log 9240 8552 Not Found: /sw.js
+WARNING 2025-06-25 12:10:57,041 basehttp 9240 8552 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:11:10,376 basehttp 9240 6728 "GET /admin/trustwave/loginattempt/ HTTP/1.1" 200 24750
+INFO 2025-06-25 12:11:11,605 basehttp 9240 13176 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-06-25 12:11:12,541 basehttp 9240 10776 - Broken pipe from ('127.0.0.1', 56166)
+INFO 2025-06-25 12:11:12,859 basehttp 9240 8552 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-06-25 12:11:12,861 basehttp 9240 6728 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-06-25 12:11:12,861 basehttp 9240 7628 - Broken pipe from ('127.0.0.1', 56169)
+INFO 2025-06-25 12:11:12,923 basehttp 9240 14068 - Broken pipe from ('127.0.0.1', 56168)
+INFO 2025-06-25 12:11:13,014 basehttp 9240 9564 - Broken pipe from ('127.0.0.1', 56167)
+INFO 2025-06-25 12:11:13,085 basehttp 9240 7088 - Broken pipe from ('127.0.0.1', 56170)
+INFO 2025-06-25 12:11:13,089 basehttp 9240 4112 - Broken pipe from ('127.0.0.1', 56171)
+INFO 2025-06-25 12:11:13,337 basehttp 9240 13176 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-06-25 12:11:19,894 basehttp 9240 6728 "GET /admin/trustwave/report/ HTTP/1.1" 200 18659
+INFO 2025-06-25 12:11:20,158 basehttp 9240 8552 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-06-25 12:11:43,792 basehttp 9240 6728 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-25 12:11:44,356 log 9240 8552 Not Found: /sw.js
+WARNING 2025-06-25 12:11:44,358 basehttp 9240 8552 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:11:50,119 basehttp 9240 6728 "GET /dashboard/ HTTP/1.1" 200 22919
+WARNING 2025-06-25 12:11:50,611 log 9240 8552 Not Found: /sw.js
+WARNING 2025-06-25 12:11:50,619 basehttp 9240 8552 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:11:56,724 basehttp 9240 6728 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-25 12:11:57,419 log 9240 8552 Not Found: /sw.js
+WARNING 2025-06-25 12:11:57,421 basehttp 9240 8552 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:12:34,914 basehttp 9240 6728 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-25 12:12:35,304 log 9240 8552 Not Found: /sw.js
+WARNING 2025-06-25 12:12:35,312 basehttp 9240 8552 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:12:36,709 basehttp 9240 6728 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-25 12:12:37,164 log 9240 8552 Not Found: /sw.js
+WARNING 2025-06-25 12:12:37,172 basehttp 9240 8552 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:12:42,990 basehttp 9240 6728 "GET / HTTP/1.1" 200 20718
+WARNING 2025-06-25 12:12:43,629 log 9240 8552 Not Found: /sw.js
+WARNING 2025-06-25 12:12:43,631 basehttp 9240 8552 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:16:21,459 basehttp 9240 8880 "GET /admin/trustwave/loginattempt/ HTTP/1.1" 200 24750
+WARNING 2025-06-25 12:16:51,179 log 9240 11212 Not Found: /sw.js
+WARNING 2025-06-25 12:16:51,236 basehttp 9240 11212 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:16:51,323 basehttp 9240 8880 - Broken pipe from ('127.0.0.1', 56248)
+INFO 2025-06-25 12:18:03,364 basehttp 9240 11212 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-25 12:18:05,577 log 9240 11212 Not Found: /sw.js
+WARNING 2025-06-25 12:18:05,587 basehttp 9240 11212 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:18:47,176 basehttp 9240 11212 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-25 12:18:48,436 log 9240 11212 Not Found: /sw.js
+WARNING 2025-06-25 12:18:48,447 basehttp 9240 11212 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 12:28:30,937 autoreload 8684 13104 Watching for file changes with StatReloader
+WARNING 2025-06-25 12:29:45,877 log 8684 11788 Not Found: /dashboard/view-user-documents/<user_id>/
+WARNING 2025-06-25 12:29:45,883 basehttp 8684 11788 "GET /dashboard/view-user-documents/%3Cuser_id%3E/ HTTP/1.1" 404 5635
+WARNING 2025-06-25 12:32:19,004 base 8684 10884 Session data corrupted
+INFO 2025-06-25 12:32:19,142 basehttp 8684 10884 "GET /dashboard/view-user-documents/3/ HTTP/1.1" 302 0
+WARNING 2025-06-25 12:32:19,166 base 8684 10884 Session data corrupted
+INFO 2025-06-25 12:32:19,961 basehttp 8684 10884 "GET /admin/login/?next=/dashboard/view-user-documents/3/ HTTP/1.1" 200 4228
+WARNING 2025-06-25 12:32:26,818 base 8684 10884 Session data corrupted
+INFO 2025-06-25 12:32:32,595 basehttp 8684 10884 "POST /admin/login/?next=/dashboard/view-user-documents/3/ HTTP/1.1" 302 0
+ERROR 2025-06-25 12:32:33,170 log 8684 10884 Internal Server Error: /dashboard/view-user-documents/3/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "F:\bambili_connect\trustwave\views.py", line 545, in view_user_documents
+    return render(request, 'trustwave/view_user_documents.html', context)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/view_user_documents.html
+ERROR 2025-06-25 12:32:33,221 basehttp 8684 10884 "GET /dashboard/view-user-documents/3/ HTTP/1.1" 500 105512
+INFO 2025-06-25 12:32:40,432 basehttp 8684 10884 "GET /admin/login/?next=/dashboard/view-user-documents/3/ HTTP/1.1" 302 0
+INFO 2025-06-25 12:32:40,766 basehttp 8684 10884 "GET /admin/ HTTP/1.1" 200 9370
+INFO 2025-06-25 12:32:41,540 basehttp 8684 10884 - Broken pipe from ('127.0.0.1', 59750)
+INFO 2025-06-25 12:35:00,953 basehttp 8684 7968 "GET /dashboard/ HTTP/1.1" 200 22920
+WARNING 2025-06-25 12:35:02,219 log 8684 7968 Not Found: /sw.js
+WARNING 2025-06-25 12:35:02,317 basehttp 8684 7968 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 12:35:16,321 basehttp 8684 7968 "GET /admin/trustwave/customuser/add/ HTTP/1.1" 200 16222
+INFO 2025-06-25 12:35:16,556 basehttp 8684 7968 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-06-25 12:35:16,663 basehttp 8684 7968 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-06-25 12:35:16,840 basehttp 8684 800 - Broken pipe from ('127.0.0.1', 59820)
+INFO 2025-06-25 12:35:34,133 basehttp 8684 7968 "GET /admin/trustwave/ HTTP/1.1" 200 7226
+INFO 2025-06-25 12:35:35,368 basehttp 8684 7968 "GET /admin/ HTTP/1.1" 200 9370
+INFO 2025-06-25 12:37:17,925 basehttp 8684 7968 "GET /admin-dashboard/ HTTP/1.1" 200 15242
+WARNING 2025-06-25 12:37:18,799 log 8684 7968 Not Found: /sw.js
+WARNING 2025-06-25 12:37:18,873 basehttp 8684 7968 "GET /sw.js HTTP/1.1" 404 5514
+ERROR 2025-06-25 12:37:24,975 log 8684 7968 Internal Server Error: /dashboard/validate-user/3/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "F:\bambili_connect\trustwave\views.py", line 495, in validate_user
+    user.status = CustomUser.AccountStatus.VALIDATED
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'CustomUser' has no attribute 'AccountStatus'
+ERROR 2025-06-25 12:37:25,006 basehttp 8684 7968 "GET /dashboard/validate-user/3/ HTTP/1.1" 500 89494
+INFO 2025-06-25 12:38:43,737 autoreload 8684 13104 F:\bambili_connect\trustwave\views.py changed, reloading.
+INFO 2025-06-25 12:38:50,312 autoreload 11688 11244 Watching for file changes with StatReloader
+WARNING 2025-06-25 12:38:59,726 base 11688 1184 Session data corrupted
+INFO 2025-06-25 12:39:00,266 basehttp 11688 1184 "GET /dashboard/validate-user/3/ HTTP/1.1" 302 0
+WARNING 2025-06-25 12:39:00,325 base 11688 1184 Session data corrupted
+INFO 2025-06-25 12:39:00,677 basehttp 11688 1184 "GET /admin/login/?next=/dashboard/validate-user/3/ HTTP/1.1" 200 4216
+WARNING 2025-06-25 12:39:11,061 base 11688 1184 Session data corrupted
+INFO 2025-06-25 12:39:11,068 basehttp 11688 1184 "GET /dashboard/validate-user/3/ HTTP/1.1" 302 0
+WARNING 2025-06-25 12:39:11,144 base 11688 1184 Session data corrupted
+INFO 2025-06-25 12:39:11,262 basehttp 11688 1184 "GET /admin/login/?next=/dashboard/validate-user/3/ HTTP/1.1" 200 4216
+WARNING 2025-06-25 12:39:15,164 base 11688 1184 Session data corrupted
+INFO 2025-06-25 12:39:18,154 basehttp 11688 1184 "POST /admin/login/?next=/dashboard/validate-user/3/ HTTP/1.1" 302 0
+ERROR 2025-06-25 12:39:19,042 log 11688 1184 Internal Server Error: /dashboard/validate-user/3/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "F:\bambili_connect\trustwave\views.py", line 509, in validate_user
+    return redirect('admin_dashboard')
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\urls\resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'admin_dashboard' not found. 'admin_dashboard' is not a valid view function or pattern name.
+ERROR 2025-06-25 12:39:19,127 basehttp 11688 1184 "GET /dashboard/validate-user/3/ HTTP/1.1" 500 108257
+INFO 2025-06-25 12:40:46,272 autoreload 11688 11244 F:\bambili_connect\trustwave\views.py changed, reloading.
+INFO 2025-06-25 12:40:51,640 autoreload 1800 6044 Watching for file changes with StatReloader
+WARNING 2025-06-25 12:40:57,619 base 1800 2412 Session data corrupted
+INFO 2025-06-25 12:40:57,780 basehttp 1800 2412 "GET /dashboard/validate-user/3/ HTTP/1.1" 302 0
+WARNING 2025-06-25 12:40:57,860 base 1800 2412 Session data corrupted
+INFO 2025-06-25 12:40:58,120 basehttp 1800 2412 "GET /admin/login/?next=/dashboard/validate-user/3/ HTTP/1.1" 200 4216
+WARNING 2025-06-25 12:41:04,584 base 1800 2412 Session data corrupted
+INFO 2025-06-25 12:41:09,207 basehttp 1800 2412 "POST /admin/login/?next=/dashboard/validate-user/3/ HTTP/1.1" 302 0
+INFO 2025-06-25 12:41:10,310 basehttp 1800 2412 "GET /dashboard/validate-user/3/ HTTP/1.1" 302 0
+INFO 2025-06-25 12:41:10,440 basehttp 1800 2412 "GET /admin-dashboard/ HTTP/1.1" 200 14194
+WARNING 2025-06-25 12:41:11,034 log 1800 2412 Not Found: /sw.js
+WARNING 2025-06-25 12:41:11,038 basehttp 1800 2412 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 12:41:25,529 basehttp 1800 2412 "GET / HTTP/1.1" 200 20696
+WARNING 2025-06-25 12:41:26,080 log 1800 2412 Not Found: /sw.js
+WARNING 2025-06-25 12:41:26,091 basehttp 1800 2412 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 12:41:31,492 basehttp 1800 2412 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-06-25 12:41:31,620 basehttp 1800 2412 "GET / HTTP/1.1" 200 20451
+WARNING 2025-06-25 12:41:32,147 log 1800 2412 Not Found: /sw.js
+WARNING 2025-06-25 12:41:32,199 basehttp 1800 2412 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 12:41:35,519 basehttp 1800 2412 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-25 12:41:36,416 log 1800 2412 Not Found: /sw.js
+WARNING 2025-06-25 12:41:36,446 basehttp 1800 2412 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 12:41:53,466 views 1800 2412 User logged in: lyliefepou@gmail.com
+INFO 2025-06-25 12:41:53,616 basehttp 1800 2412 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-25 12:41:53,750 basehttp 1800 2412 "GET /dashboard/ HTTP/1.1" 200 17920
+WARNING 2025-06-25 12:41:54,199 log 1800 2412 Not Found: /sw.js
+WARNING 2025-06-25 12:41:54,203 basehttp 1800 2412 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 12:42:07,151 basehttp 1800 2412 "GET /profile/ HTTP/1.1" 200 8972
+WARNING 2025-06-25 12:42:07,698 log 1800 2412 Not Found: /sw.js
+WARNING 2025-06-25 12:42:07,706 basehttp 1800 2412 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 12:42:11,748 basehttp 1800 2412 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-25 12:42:12,267 log 1800 2412 Not Found: /sw.js
+WARNING 2025-06-25 12:42:12,286 basehttp 1800 2412 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 12:42:16,101 basehttp 1800 2412 "GET /report/2/ HTTP/1.1" 200 8058
+INFO 2025-06-25 12:42:17,136 basehttp 1800 2412 "GET /media/reports/user_2/login_page_Fepou_orlie.jpg HTTP/1.1" 200 74152
+WARNING 2025-06-25 12:42:17,370 log 1800 3980 Not Found: /sw.js
+WARNING 2025-06-25 12:42:17,382 basehttp 1800 3980 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 12:42:25,289 basehttp 1800 2412 "GET / HTTP/1.1" 200 20696
+WARNING 2025-06-25 12:42:25,868 log 1800 3980 Not Found: /sw.js
+WARNING 2025-06-25 12:42:25,872 basehttp 1800 3980 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 13:46:16,619 autoreload 1800 6044 F:\bambili_connect\trustwave\urls.py changed, reloading.
+INFO 2025-06-25 13:50:23,394 autoreload 7356 12784 Watching for file changes with StatReloader
+INFO 2025-06-25 13:52:48,489 basehttp 7356 6008 "GET / HTTP/1.1" 200 20059
+WARNING 2025-06-25 13:52:49,147 log 7356 6008 Not Found: /sw.js
+WARNING 2025-06-25 13:52:49,159 basehttp 7356 6008 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 13:53:21,144 basehttp 7356 6008 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-25 13:53:21,895 log 7356 6008 Not Found: /sw.js
+WARNING 2025-06-25 13:53:21,925 basehttp 7356 6008 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 13:53:48,438 views 7356 6008 User logged in: lyliefepou@gmail.com
+INFO 2025-06-25 13:53:48,641 basehttp 7356 6008 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-25 13:53:48,746 basehttp 7356 6008 "GET /dashboard/ HTTP/1.1" 200 18637
+WARNING 2025-06-25 13:53:49,382 log 7356 13412 Not Found: /sw.js
+WARNING 2025-06-25 13:53:49,423 basehttp 7356 13412 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 13:54:06,214 basehttp 7356 6008 "GET /submit-report/ HTTP/1.1" 200 12287
+WARNING 2025-06-25 13:54:08,382 log 7356 13412 Not Found: /sw.js
+WARNING 2025-06-25 13:54:08,386 basehttp 7356 13412 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 13:54:34,360 basehttp 7356 6008 "GET / HTTP/1.1" 200 20714
+WARNING 2025-06-25 13:54:34,936 log 7356 13412 Not Found: /sw.js
+WARNING 2025-06-25 13:54:34,944 basehttp 7356 13412 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 13:58:43,953 basehttp 7356 13968 "GET / HTTP/1.1" 200 20714
+WARNING 2025-06-25 13:58:44,403 log 7356 13968 Not Found: /sw.js
+WARNING 2025-06-25 13:58:44,473 basehttp 7356 13968 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 13:58:46,480 basehttp 7356 13968 "GET / HTTP/1.1" 200 20714
+WARNING 2025-06-25 13:58:46,820 log 7356 13968 Not Found: /sw.js
+WARNING 2025-06-25 13:58:46,824 basehttp 7356 13968 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 13:59:39,804 autoreload 11552 13180 Watching for file changes with StatReloader
+INFO 2025-06-25 13:59:55,179 basehttp 7356 13968 "GET / HTTP/1.1" 200 20714
+WARNING 2025-06-25 13:59:55,815 log 7356 13968 Not Found: /sw.js
+WARNING 2025-06-25 13:59:55,819 basehttp 7356 13968 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 14:00:04,596 basehttp 7356 13968 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-25 14:00:05,211 log 7356 13968 Not Found: /sw.js
+WARNING 2025-06-25 14:00:05,221 basehttp 7356 13968 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 14:00:11,295 basehttp 7356 13968 "GET /report/2/ HTTP/1.1" 200 8409
+WARNING 2025-06-25 14:00:11,917 log 7356 13968 Not Found: /sw.js
+WARNING 2025-06-25 14:00:12,003 basehttp 7356 13968 "GET /sw.js HTTP/1.1" 404 7160
+INFO 2025-06-25 14:01:50,129 autoreload 11552 13180 F:\bambili_connect\trustwave\urls.py changed, reloading.
+INFO 2025-06-25 14:01:50,541 autoreload 7356 12784 F:\bambili_connect\trustwave\urls.py changed, reloading.
+INFO 2025-06-25 14:03:49,934 autoreload 12008 13136 Watching for file changes with StatReloader
+WARNING 2025-06-25 14:04:01,614 base 12008 7724 Session data corrupted
+INFO 2025-06-25 14:04:01,845 basehttp 12008 7724 "GET /report/2/ HTTP/1.1" 200 7374
+WARNING 2025-06-25 14:04:02,797 log 12008 7724 Not Found: /sw.js
+WARNING 2025-06-25 14:04:02,801 basehttp 12008 7724 "GET /sw.js HTTP/1.1" 404 5514
+WARNING 2025-06-25 14:07:15,292 base 12008 9932 Session data corrupted
+INFO 2025-06-25 14:07:15,378 basehttp 12008 9932 "GET /report/2/ HTTP/1.1" 200 7421
+WARNING 2025-06-25 14:07:15,990 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:07:15,994 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+WARNING 2025-06-25 14:07:17,800 base 12008 9932 Session data corrupted
+INFO 2025-06-25 14:07:17,820 basehttp 12008 9932 "GET /report/2/ HTTP/1.1" 200 7421
+WARNING 2025-06-25 14:07:18,188 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:07:18,193 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+WARNING 2025-06-25 14:07:23,844 base 12008 9932 Session data corrupted
+INFO 2025-06-25 14:07:24,038 basehttp 12008 9932 "GET /register/ HTTP/1.1" 200 14822
+WARNING 2025-06-25 14:07:24,955 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:07:24,967 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+WARNING 2025-06-25 14:07:25,586 base 12008 9932 Session data corrupted
+INFO 2025-06-25 14:07:25,612 basehttp 12008 9932 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-25 14:07:26,325 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:07:26,335 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+WARNING 2025-06-25 14:07:35,978 base 12008 9932 Session data corrupted
+INFO 2025-06-25 14:07:42,278 views 12008 9932 User logged in: orliefepou@gmail.com
+INFO 2025-06-25 14:07:42,823 basehttp 12008 9932 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:07:42,973 basehttp 12008 9932 "GET /dashboard/ HTTP/1.1" 200 23375
+WARNING 2025-06-25 14:07:43,645 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:07:43,705 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:07:59,827 basehttp 12008 9932 "GET /reports/?user=2 HTTP/1.1" 200 7904
+WARNING 2025-06-25 14:08:00,459 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:08:00,467 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:08:02,600 basehttp 12008 9932 "GET /report/1/ HTTP/1.1" 200 8445
+WARNING 2025-06-25 14:08:03,147 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:08:03,188 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:08:14,051 basehttp 12008 9932 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:08:14,172 basehttp 12008 9932 "GET / HTTP/1.1" 200 20469
+WARNING 2025-06-25 14:08:14,741 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:08:14,751 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:08:17,903 basehttp 12008 9932 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-25 14:08:18,675 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:08:18,682 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:08:30,843 views 12008 9932 User logged in: lyliefepou@gmail.com
+INFO 2025-06-25 14:08:31,137 basehttp 12008 9932 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:08:31,254 basehttp 12008 9932 "GET /dashboard/ HTTP/1.1" 200 19345
+WARNING 2025-06-25 14:08:31,845 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:08:31,850 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:08:53,241 basehttp 12008 9932 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-25 14:08:53,952 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:08:54,122 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:08:55,629 basehttp 12008 9932 "GET /report/2/ HTTP/1.1" 200 8456
+WARNING 2025-06-25 14:08:56,407 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:08:56,413 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:09:06,327 basehttp 12008 9932 "GET / HTTP/1.1" 200 20714
+WARNING 2025-06-25 14:09:06,922 log 12008 9932 Not Found: /sw.js
+WARNING 2025-06-25 14:09:06,926 basehttp 12008 9932 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:12:18,683 basehttp 12008 7380 "GET /admin-dashboard/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:12:19,068 basehttp 12008 7380 "GET /admin/login/?next=/admin-dashboard/ HTTP/1.1" 200 3731
+INFO 2025-06-25 14:12:34,259 basehttp 12008 7380 "POST /admin/login/?next=/admin-dashboard/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:12:34,385 basehttp 12008 7380 "GET /admin-dashboard/ HTTP/1.1" 200 13776
+WARNING 2025-06-25 14:12:35,179 log 12008 7380 Not Found: /sw.js
+WARNING 2025-06-25 14:12:35,183 basehttp 12008 7380 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:26:20,413 basehttp 12008 10104 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:26:20,608 basehttp 12008 10104 "GET / HTTP/1.1" 200 20471
+WARNING 2025-06-25 14:26:21,175 log 12008 10104 Not Found: /sw.js
+WARNING 2025-06-25 14:26:21,183 basehttp 12008 10104 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:26:22,997 basehttp 12008 10104 "GET /login/ HTTP/1.1" 200 8789
+WARNING 2025-06-25 14:26:23,644 log 12008 10104 Not Found: /sw.js
+WARNING 2025-06-25 14:26:23,650 basehttp 12008 10104 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:26:32,635 views 12008 10104 User logged in: lyliefepou@gmail.com
+INFO 2025-06-25 14:26:32,914 basehttp 12008 10104 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:26:33,119 basehttp 12008 10104 "GET /dashboard/ HTTP/1.1" 200 20053
+WARNING 2025-06-25 14:26:33,646 log 12008 10104 Not Found: /sw.js
+WARNING 2025-06-25 14:26:33,660 basehttp 12008 10104 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:26:59,449 basehttp 12008 10104 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-25 14:27:00,161 log 12008 10104 Not Found: /sw.js
+WARNING 2025-06-25 14:27:00,242 basehttp 12008 10104 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:27:02,227 basehttp 12008 10104 "GET /report/1/ HTTP/1.1" 200 8445
+WARNING 2025-06-25 14:27:02,975 log 12008 10104 Not Found: /sw.js
+WARNING 2025-06-25 14:27:02,993 basehttp 12008 10104 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:38:00,444 basehttp 12008 10528 "GET /dashboard/ HTTP/1.1" 200 19656
+WARNING 2025-06-25 14:38:01,086 log 12008 10528 Not Found: /sw.js
+WARNING 2025-06-25 14:38:01,112 basehttp 12008 10528 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:40:10,218 basehttp 12008 11640 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-25 14:40:11,598 log 12008 11640 Not Found: /sw.js
+WARNING 2025-06-25 14:40:11,602 basehttp 12008 11640 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:41:07,059 basehttp 12008 11640 "GET /admin/trustwave/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:41:07,168 basehttp 12008 11640 "GET /admin/login/?next=/admin/trustwave/ HTTP/1.1" 200 3731
+INFO 2025-06-25 14:41:22,784 basehttp 12008 11640 "GET / HTTP/1.1" 200 20716
+WARNING 2025-06-25 14:41:23,392 log 12008 11640 Not Found: /sw.js
+WARNING 2025-06-25 14:41:23,400 basehttp 12008 11640 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:43:07,436 basehttp 12008 11640 "GET /admin-dashboard/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:43:07,666 basehttp 12008 11640 "GET /admin/login/?next=/admin-dashboard/ HTTP/1.1" 200 3731
+INFO 2025-06-25 14:43:19,540 basehttp 12008 11640 "POST /admin/login/?next=/admin-dashboard/ HTTP/1.1" 302 0
+INFO 2025-06-25 14:43:19,700 basehttp 12008 11640 "GET /admin-dashboard/ HTTP/1.1" 200 13776
+WARNING 2025-06-25 14:43:20,342 log 12008 11640 Not Found: /sw.js
+WARNING 2025-06-25 14:43:20,355 basehttp 12008 11640 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:45:01,215 basehttp 12008 11640 "GET /dashboard/ HTTP/1.1" 200 22967
+WARNING 2025-06-25 14:45:01,871 log 12008 11640 Not Found: /sw.js
+WARNING 2025-06-25 14:45:01,875 basehttp 12008 11640 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:48:46,651 basehttp 12008 6284 "GET /reports/?user=2 HTTP/1.1" 200 7904
+WARNING 2025-06-25 14:48:47,229 log 12008 6284 Not Found: /sw.js
+WARNING 2025-06-25 14:48:47,241 basehttp 12008 6284 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:49:24,119 basehttp 12008 6284 "GET /report/1/ HTTP/1.1" 200 8445
+WARNING 2025-06-25 14:49:24,648 log 12008 6284 Not Found: /sw.js
+WARNING 2025-06-25 14:49:24,652 basehttp 12008 6284 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:49:30,181 basehttp 12008 6284 "GET / HTTP/1.1" 200 20716
+WARNING 2025-06-25 14:49:30,784 log 12008 6284 Not Found: /sw.js
+WARNING 2025-06-25 14:49:30,789 basehttp 12008 6284 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:49:39,129 basehttp 12008 6284 "GET / HTTP/1.1" 200 20716
+WARNING 2025-06-25 14:49:39,474 log 12008 6284 Not Found: /sw.js
+WARNING 2025-06-25 14:49:39,483 basehttp 12008 6284 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:49:43,085 basehttp 12008 6284 "GET /dashboard/ HTTP/1.1" 200 22967
+WARNING 2025-06-25 14:49:43,716 log 12008 6284 Not Found: /sw.js
+WARNING 2025-06-25 14:49:43,727 basehttp 12008 6284 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:49:56,174 basehttp 12008 6284 "GET / HTTP/1.1" 200 20716
+WARNING 2025-06-25 14:49:56,639 log 12008 6284 Not Found: /sw.js
+WARNING 2025-06-25 14:49:56,644 basehttp 12008 6284 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 14:54:21,942 basehttp 12008 12180 "GET /dashboard/ HTTP/1.1" 200 22969
+WARNING 2025-06-25 14:54:23,273 log 12008 12180 Not Found: /sw.js
+WARNING 2025-06-25 14:54:23,930 basehttp 12008 12180 "GET /sw.js HTTP/1.1" 404 5514
+ERROR 2025-06-25 14:54:46,381 log 12008 12180 Internal Server Error: /dashboard/view-user-documents/3/
+Traceback (most recent call last):
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "F:\bambili_connect\trustwave\views.py", line 545, in view_user_documents
+    return render(request, 'trustwave/view_user_documents.html', context)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\LENOVO PRO\.conda\envs\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: trustwave/view_user_documents.html
+ERROR 2025-06-25 14:54:46,471 basehttp 12008 12180 "GET /dashboard/view-user-documents/3/ HTTP/1.1" 500 105167
+INFO 2025-06-25 17:40:58,061 autoreload 10888 14844 Watching for file changes with StatReloader
+INFO 2025-06-25 17:41:15,244 basehttp 10888 15480 "GET /dashboard/ HTTP/1.1" 302 0
+INFO 2025-06-25 17:41:16,061 basehttp 10888 15480 "GET /login/?next=/dashboard/ HTTP/1.1" 200 8789
+WARNING 2025-06-25 17:41:18,823 log 10888 15480 Not Found: /sw.js
+WARNING 2025-06-25 17:41:18,827 basehttp 10888 15480 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:41:32,675 views 10888 15480 User logged in: orliefepou@gmail.com
+INFO 2025-06-25 17:41:33,277 basehttp 10888 15480 "POST /login/?next=/dashboard/ HTTP/1.1" 302 0
+INFO 2025-06-25 17:41:33,743 basehttp 10888 15480 "GET /dashboard/ HTTP/1.1" 200 23363
+WARNING 2025-06-25 17:41:34,507 log 10888 2396 Not Found: /sw.js
+WARNING 2025-06-25 17:41:34,510 basehttp 10888 2396 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:41:42,842 basehttp 10888 15480 "GET /submit-report/ HTTP/1.1" 200 12998
+WARNING 2025-06-25 17:41:45,658 log 10888 2396 Not Found: /sw.js
+WARNING 2025-06-25 17:41:45,722 basehttp 10888 2396 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:42:54,960 basehttp 10888 15480 "GET / HTTP/1.1" 200 20716
+WARNING 2025-06-25 17:42:55,814 log 10888 2396 Not Found: /sw.js
+WARNING 2025-06-25 17:42:55,818 basehttp 10888 2396 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:43:04,763 basehttp 10888 15480 "GET /dashboard/ HTTP/1.1" 200 22986
+WARNING 2025-06-25 17:43:05,732 log 10888 2396 Not Found: /sw.js
+WARNING 2025-06-25 17:43:05,736 basehttp 10888 2396 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:43:27,728 basehttp 10888 15480 "GET /report/2/ HTTP/1.1" 200 8456
+WARNING 2025-06-25 17:43:28,851 log 10888 2396 Not Found: /sw.js
+WARNING 2025-06-25 17:43:28,934 basehttp 10888 2396 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:43:59,218 basehttp 10888 15480 "GET /report/2/ HTTP/1.1" 200 8456
+WARNING 2025-06-25 17:44:00,418 log 10888 2396 Not Found: /sw.js
+WARNING 2025-06-25 17:44:00,432 basehttp 10888 2396 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:44:13,595 basehttp 10888 15480 "GET /report/1/ HTTP/1.1" 200 8445
+WARNING 2025-06-25 17:44:14,583 log 10888 2396 Not Found: /sw.js
+WARNING 2025-06-25 17:44:14,637 basehttp 10888 2396 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:44:17,649 basehttp 10888 15480 "GET /media/reports/user_2/ab1.pdf HTTP/1.1" 200 212215
+WARNING 2025-06-25 17:44:18,449 log 10888 14484 Not Found: /favicon.ico
+WARNING 2025-06-25 17:44:18,520 basehttp 10888 14484 "GET /favicon.ico HTTP/1.1" 404 5532
+INFO 2025-06-25 17:44:36,021 basehttp 10888 15480 "GET /dashboard/ HTTP/1.1" 200 22989
+WARNING 2025-06-25 17:44:37,413 log 10888 2396 Not Found: /sw.js
+WARNING 2025-06-25 17:44:37,422 basehttp 10888 2396 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:46:45,836 basehttp 10888 15296 "GET /map/ HTTP/1.1" 200 20084
+WARNING 2025-06-25 17:46:47,663 log 10888 15296 Not Found: /sw.js
+WARNING 2025-06-25 17:46:47,670 basehttp 10888 15296 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:46:58,435 basehttp 10888 15296 "GET / HTTP/1.1" 200 20716
+WARNING 2025-06-25 17:46:59,623 log 10888 15296 Not Found: /sw.js
+WARNING 2025-06-25 17:46:59,671 basehttp 10888 15296 "GET /sw.js HTTP/1.1" 404 5514
+INFO 2025-06-25 17:47:01,116 basehttp 10888 15296 "GET /reports/ HTTP/1.1" 200 7904
+WARNING 2025-06-25 17:47:01,853 log 10888 15296 Not Found: /sw.js
+WARNING 2025-06-25 17:47:01,859 basehttp 10888 15296 "GET /sw.js HTTP/1.1" 404 5514

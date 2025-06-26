@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Refuse User - Trust Wave Bambili{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        Refuse User Account
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <strong>Warning:</strong> You are about to refuse the account for <strong>{{ user.full_name }}</strong>. 
+                        This action will prevent them from accessing the platform.
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h6>User Details:</h6>
+                            <ul class="list-unstyled">
+                                <li><strong>Name:</strong> {{ user.full_name }}</li>
+                                <li><strong>Email:</strong> {{ user.email }}</li>
+                                <li><strong>Phone:</strong> {{ user.phone_number }}</li>
+                                <li><strong>Profession:</strong> {{ user.get_profession_display }}</li>
+                                <li><strong>Location:</strong> {{ user.neighborhood }}</li>
+                                <li><strong>Registration Date:</strong> {{ user.created_at|date:"M d, Y H:i" }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Documents:</h6>
+                            {% if user.id_card %}
+                                <p><a href="{{ user.id_card.url }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-earmark-image me-1"></i> View ID Card
+                                </a></p>
+                            {% endif %}
+                            {% if user.supporting_doc %}
+                                <p><a href="{{ user.supporting_doc.url }}" target="_blank" class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-file-earmark-text me-1"></i> View Supporting Document
+                                </a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="rejection_reason" class="form-label">
+                                <strong>Reason for Refusal:</strong>
+                            </label>
+                            <textarea 
+                                class="form-control" 
+                                id="rejection_reason" 
+                                name="rejection_reason" 
+                                rows="4" 
+                                placeholder="Please provide a clear reason for refusing this account..."
+                                required
+                            ></textarea>
+                            <div class="form-text">
+                                This reason will be stored for record-keeping purposes.
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left me-1"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-x-circle me-1"></i> Refuse Account
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

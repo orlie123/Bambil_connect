@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Profile - Trust Wave Bambili{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <ul class="nav nav-tabs mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'edit_profile' %}">Edit Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'change_password' %}">Change Password</a>
+                </li>
+            </ul>
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h2 class="wave-text text-center mb-0">Edit Profile</h2>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <i class="bi bi-exclamation-circle me-2"></i>
+                                {% for error in form.non_field_errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {% for field in form %}
+                            {% if field.name != 'id_card' and field.name != 'supporting_doc' %}
+                                <div class="mb-3">
+                                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                                    {% if field.name == 'full_name' %}
+                                        <input type="text"
+                                               name="full_name"
+                                               id="{{ field.id_for_label }}"
+                                               class="form-control"
+                                               maxlength="100"
+                                               pattern="^[A-Za-zÀ-ÿ\s\-']{1,100}$"
+                                               required
+                                               value="{{ field.value|default_if_none:'' }}"
+                                               oninput="this.value=this.value.replace(/[^A-Za-zÀ-ÿ\s\-']/g,'');">
+                                        <div class="invalid-feedback">
+                                            Please provide a valid name (alphabetic, max 100 characters).
+                                        </div>
+                                    {% elif field.name == 'email' %}
+                                        <input type="email"
+                                               name="email"
+                                               id="{{ field.id_for_label }}"
+                                               class="form-control"
+                                               maxlength="100"
+                                               required
+                                               value="{{ field.value|default_if_none:'' }}">
+                                        <div class="invalid-feedback">
+                                            Please provide a valid email address.
+                                        </div>
+                                    {% elif field.name == 'phone_number' %}
+                                        <div class="input-group">
+                                            <span class="input-group-text">+237</span>
+                                            <input type="text"
+                                                   name="phone_number"
+                                                   id="{{ field.id_for_label }}"
+                                                   class="form-control"
+                                                   pattern="\d{9}"
+                                                   maxlength="9"
+                                                   minlength="9"
+                                                   inputmode="numeric"
+                                                   required
+                                                   value="{{ field.value|default_if_none:'' }}"
+                                                   oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+                                        </div>
+                                        <small class="text-muted">Enter 9 digits (e.g. 650123456)</small>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid 9-digit phone number.
+                                        </div>
+                                    {% elif field.name == 'profession' %}
+                                        {{ field }}
+                                        <div class="invalid-feedback">
+                                            Please select your profession.
+                                        </div>
+                                    {% elif field.name == 'location' %}
+                                        <input type="text"
+                                               name="location"
+                                               id="{{ field.id_for_label }}"
+                                               class="form-control"
+                                               maxlength="100"
+                                               pattern="^[A-Za-z0-9À-ÿ\s\-',.]{1,100}$"
+                                               required
+                                               value="{{ field.value|default_if_none:'' }}"
+                                               oninput="this.value=this.value.replace(/[^A-Za-z0-9À-ÿ\s\-',.]/g,'');">
+                                        <div class="invalid-feedback">
+                                            Please provide a valid location (max 100 characters).
+                                        </div>
+                                    {% endif %}
+                                    {% if field.errors %}
+                                        <div class="invalid-feedback d-block">
+                                            {% for error in field.errors %}
+                                                {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.help_text %}
+                                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i>
+                            To update your ID Card or Supporting Document, please contact support.
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+                            <a href="{% url 'profile' %}" class="btn btn-secondary btn-lg">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

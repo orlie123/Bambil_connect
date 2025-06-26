@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow">
+          <div class="card-header text-center">
+            <h4 class="mb-0">
+              <i class="fas fa-file-alt me-2"></i>Report Details
+            </h4>
+          </div>
+          <div class="card-body p-4">
+            <h5>{{ report.title }}</h5>
+            <p><strong>Description:</strong> {{ report.description }}</p>
+            <p><strong>Location:</strong> {{ report.location }}</p>
+            <p><strong>Category:</strong> {{ report.get_category_display }}</p>
+            <p><strong>Urgency:</strong> {{ report.get_urgency_display }}</p>
+            {% if report.image %}
+              <p><strong>Image:</strong><br><img src="{{ report.image.url }}" class="img-fluid" alt="Report Image"></p>
+            {% endif %}
+            {% if report.video %}
+              <p><strong>Video:</strong><br><a href="{{ report.video.url }}" target="_blank">View Video</a></p>
+            {% endif %}
+            {% if report.document %}
+              <p><strong>Document:</strong><br><a href="{{ report.document.url }}" target="_blank">Download Document</a></p>
+            {% endif %}
+            <p><strong>Submitted by:</strong> {{ report.user.full_name }}</p>
+            <p><strong>Submitted at:</strong> {{ report.created_at }}</p>
+            <div class="mt-4 text-center">
+              <button id="vote-btn" class="btn btn-outline-primary" data-report-id="{{ report.id }}">
+                <i id="vote-icon" class="bi {% if user_has_voted %}bi-hand-thumbs-up-fill{% else %}bi-hand-thumbs-up{% endif %}"></i>
+                <span id="vote-count">{{ report.vote_count }}</span> Vote
+              </button>
+              <span id="vote-message" class="text-success ms-2">
+                {% if user_has_voted %}You have voted for this report.{% endif %}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  console.log('Voting JS loaded');
+  document.addEventListener('DOMContentLoaded', function() {
+    const voteBtn = document.getElementById('vote-btn');
+    const voteIcon = document.getElementById('vote-icon');
+    const voteMessage = document.getElementById('vote-message');
+    if (voteBtn) {
+      voteBtn.addEventListener('click', function(e) {
+        alert('Vote button clicked!');
+        console.log('Vote button clicked');
+        e.preventDefault();
+        const reportId = this.getAttribute('data-report-id');
+        fetch(`/vote/${reportId}/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+          },
+          body: JSON.stringify({})
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            document.getElementById('vote-count').textContent = data.vote_count;
+            if (data.voted) {
+              voteIcon.classList.remove('bi-hand-thumbs-up');
+              voteIcon.classList.add('bi-hand-thumbs-up-fill');
+              voteMessage.textContent = 'You have voted for this report.';
+            } else {
+              voteIcon.classList.remove('bi-hand-thumbs-up-fill');
+              voteIcon.classList.add('bi-hand-thumbs-up');
+              voteMessage.textContent = 'You have removed your vote.';
+            }
+          } else {
+            voteMessage.textContent = data.message || 'Unable to vote.';
+          }
+        })
+        .catch(error => {
+          voteMessage.textContent = 'Error voting.';
+        });
+      });
+    }
+    // CSRF helper
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+  });
+</script>
+{% endblock %} 

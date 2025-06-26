@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - Trust Wave Bambili{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4 wave-text">Admin Dashboard</h1>
+    
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-primary border-start border-5">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h5 class="card-title text-primary">Pending Accounts</h5>
+                            <h3 class="mb-0">{{ pending_users|length }}</h3>
+                        </div>
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3">
+                            <i class="bi bi-hourglass-split text-primary fs-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-success border-start border-5">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h5 class="card-title text-success">Validated Accounts</h5>
+                            <h3 class="mb-0">{{ validated_users|length }}</h3>
+                        </div>
+                        <div class="bg-success bg-opacity-10 rounded-circle p-3">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-danger border-start border-5">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h5 class="card-title text-danger">Refused Accounts</h5>
+                            <h3 class="mb-0">{{ refused_users|length }}</h3>
+                        </div>
+                        <div class="bg-danger bg-opacity-10 rounded-circle p-3">
+                            <i class="bi bi-x-circle-fill text-danger fs-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pending Accounts -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-header bg-white">
+            <h4 class="mb-0">Pending Accounts</h4>
+        </div>
+        <div class="card-body">
+            {% if pending_users %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Profession</th>
+                                <th>Location</th>
+                                <th>Date</th>
+                                <th>Documents</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in pending_users %}
+                                <tr>
+                                    <td>{{ user.full_name }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.phone_number }}</td>
+                                    <td>{{ user.get_profession_display }}</td>
+                                    <td>{{ user.neighborhood }}</td>
+                                    <td>{{ user.created_at|date:"M d, Y" }}</td>
+                                    <td>
+                                        <a href="{% url 'trustwave:view_user_documents' user.id %}" class="btn btn-sm btn-outline-secondary">
+                                            <i class="bi bi-file-earmark-text me-1"></i> View
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a href="{% url 'trustwave:validate_user' user.id %}" class="btn btn-sm btn-success">
+                                                <i class="bi bi-check-lg me-1"></i> Validate
+                                            </a>
+                                            <a href="{% url 'trustwave:refuse_user' user.id %}" class="btn btn-sm btn-danger">
+                                                <i class="bi bi-x-lg me-1"></i> Refuse
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="text-center p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-check-circle fs-1 text-muted"></i>
+                    </div>
+                    <p class="text-muted">No pending accounts to review.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Validated and Refused Accounts Tabs -->
+    <ul class="nav nav-tabs" id="accountTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="validated-tab" data-bs-toggle="tab" data-bs-target="#validated-accounts" type="button" role="tab">
+                Validated Accounts ({{ validated_users|length }})
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="refused-tab" data-bs-toggle="tab" data-bs-target="#refused-accounts" type="button" role="tab">
+                Refused Accounts ({{ refused_users|length }})
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content" id="accountTabsContent">
+        <!-- Validated Accounts -->
+        <div class="tab-pane fade show active" id="validated-accounts" role="tabpanel">
+            <div class="card shadow-sm border-top-0 rounded-0 rounded-bottom">
+                <div class="card-body">
+                    {% if validated_users %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Profession</th>
+                                        <th>Location</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in validated_users %}
+                                        <tr>
+                                            <td>{{ user.full_name }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.phone_number }}</td>
+                                            <td>{{ user.get_profession_display }}</td>
+                                            <td>{{ user.neighborhood }}</td>
+                                            <td>{{ user.created_at|date:"M d, Y" }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="text-center p-4">
+                            <p class="text-muted">No validated accounts yet.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Refused Accounts -->
+        <div class="tab-pane fade" id="refused-accounts" role="tabpanel">
+            <div class="card shadow-sm border-top-0 rounded-0 rounded-bottom">
+                <div class="card-body">
+                    {% if refused_users %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Profession</th>
+                                        <th>Location</th>
+                                        <th>Date</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in refused_users %}
+                                        <tr>
+                                            <td>{{ user.full_name }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.phone_number }}</td>
+                                            <td>{{ user.get_profession_display }}</td>
+                                            <td>{{ user.neighborhood }}</td>
+                                            <td>{{ user.created_at|date:"M d, Y" }}</td>
+                                            <td>
+                                                {% if user.rejection_reason %}
+                                                    <span class="text-muted" title="{{ user.rejection_reason }}">
+                                                        {{ user.rejection_reason|truncatechars:30 }}
+                                                    </span>
+                                                {% else %}
+                                                    <span class="text-muted">No reason provided</span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="text-center p-4">
+                            <p class="text-muted">No refused accounts.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

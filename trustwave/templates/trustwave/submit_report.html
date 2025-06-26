@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow">
+          <div class="card-header text-center">
+            <h4 class="mb-0">
+              <i class="fas fa-flag me-2"></i>Submit a Report
+            </h4>
+          </div>
+          <div class="card-body p-4">
+            <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+              {% csrf_token %}
+              <div class="mb-3">
+                <label><strong>Click on the small map to set the <span style='color: #007bff;'>exact</span> location of your report (zoom in and click as close as possible):</strong></label>
+                <div id="map" style="height: 200px; width: 100%; margin-bottom: 1rem;"></div>
+              </div>
+              {{ form.latitude }}
+              {{ form.longitude }}
+              {{ form.as_p }}
+              <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  <i class="fas fa-paper-plane me-2"></i>Submit
+                </button>
+              </div>
+            </form>
+            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+            <script>
+              var map = L.map('map').setView([5.9631, 10.2471], 16); // Closer zoom on Bambili
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+              }).addTo(map);
+              var marker;
+              function setMarker(lat, lng) {
+                if (marker) {
+                  marker.setLatLng([lat, lng]);
+                } else {
+                  marker = L.marker([lat, lng], {draggable: true}).addTo(map);
+                  marker.on('dragend', function(e) {
+                    var pos = marker.getLatLng();
+                    document.getElementById('id_latitude').value = pos.lat;
+                    document.getElementById('id_longitude').value = pos.lng;
+                  });
+                }
+                document.getElementById('id_latitude').value = lat;
+                document.getElementById('id_longitude').value = lng;
+              }
+              map.on('click', function(e) {
+                setMarker(e.latlng.lat, e.latlng.lng);
+              });
+              // If editing, show marker at existing location
+              var latField = document.getElementById('id_latitude');
+              var lngField = document.getElementById('id_longitude');
+              if (latField.value && lngField.value) {
+                setMarker(parseFloat(latField.value), parseFloat(lngField.value));
+              }
+              // Geolocation: set marker to user's current location if allowed
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                  var lat = position.coords.latitude;
+                  var lng = position.coords.longitude;
+                  setMarker(lat, lng);
+                  if (document.getElementById('id_latitude')) document.getElementById('id_latitude').value = lat;
+                  if (document.getElementById('id_longitude')) document.getElementById('id_longitude').value = lng;
+                }, function(error) {
+                  console.log('Geolocation error:', error);
+                });
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %} 

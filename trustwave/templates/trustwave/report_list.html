@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Report List</h1>
+  {% if reports %}
+    <ul class="list-group mb-4">
+      {% for report in reports %}
+        <li class="list-group-item">
+          <h5>{{ report.title }}</h5>
+          <p><strong>Location:</strong> {{ report.location }}</p>
+          <p><strong>Category:</strong> {{ report.get_category_display }}</p>
+          <p><strong>Urgency:</strong> {{ report.get_urgency_display }}</p>
+          <p><strong>Created at:</strong> {{ report.created_at }}</p>
+          <a href="{% url 'trustwave:report_detail' report.pk %}" class="btn btn-sm btn-primary">View Details</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No reports found.</p>
+  {% endif %}
+{% endblock %} 

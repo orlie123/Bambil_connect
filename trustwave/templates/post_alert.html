@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Post New Alert - Trust Wave Bambili{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h2 class="wave-text text-center mb-0">Post New Alert</h2>
+                </div>
+                <div class="card-body p-4">
+                    <p class="text-muted text-center mb-4">Share important information with your community</p>
+                    
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <i class="bi bi-exclamation-circle me-2"></i>
+                                {% for error in form.non_field_errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        
+                        <div class="mb-3">
+                            <label for="id_title" class="form-label">Alert Title</label>
+                            <input type="text" name="title" id="id_title"
+                                   class="form-control {% if form.title.errors %}is-invalid{% endif %}"
+                                   value="{{ form.title.value|default:'' }}"
+                                   placeholder="Brief, descriptive title of the alert"
+                                   required maxlength="100"
+                                   pattern="^[A-Za-z0-9À-ÿ\s\-',.!?()]{1,100}$"
+                                   oninput="this.value=this.value.replace(/[^A-Za-z0-9À-ÿ\s\-',.!?()]/g,'');">
+                            {% if form.title.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.title.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="id_category" class="form-label">Category</label>
+                                <input type="text" name="category" id="id_category" class="form-control {% if form.category.errors %}is-invalid{% endif %}" value="{{ form.category.value|default:'' }}" placeholder="E.g., Security, Water, Electricity" list="categories" required>
+                                <datalist id="categories">
+                                    <option value="Security">
+                                    <option value="Water">
+                                    <option value="Electricity">
+                                    <option value="Road">
+                                    <option value="Health">
+                                    <option value="Education">
+                                    <option value="Environment">
+                                    <option value="Other">
+                                </datalist>
+                                {% if form.category.errors %}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.category.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="id_urgency" class="form-label">Urgency Level</label>
+                                <select name="urgency" id="id_urgency" class="form-select {% if form.urgency.errors %}is-invalid{% endif %}" required>
+                                    <option value="">Select urgency level</option>
+                                    <option value="low" {% if form.urgency.value == 'low' %}selected{% endif %}>Low</option>
+                                    <option value="medium" {% if form.urgency.value == 'medium' %}selected{% endif %}>Medium</option>
+                                    <option value="high" {% if form.urgency.value == 'high' %}selected{% endif %}>High</option>
+                                </select>
+                                {% if form.urgency.errors %}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.urgency.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="id_location" class="form-label">Location</label>
+                            <input type="text" name="location" id="id_location"
+                                   class="form-control {% if form.location.errors %}is-invalid{% endif %}"
+                                   value="{{ form.location.value|default:'' }}"
+                                   placeholder="Specific location in Bambili"
+                                   required maxlength="100"
+                                   pattern="^[A-Za-z0-9À-ÿ\s\-',.]{1,100}$"
+                                   oninput="this.value=this.value.replace(/[^A-Za-z0-9À-ÿ\s\-',.]/g,'');">
+                            {% if form.location.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.location.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="id_description" class="form-label">Description</label>
+                            <textarea name="description" id="id_description"
+                                      class="form-control {% if form.description.errors %}is-invalid{% endif %}"
+                                      rows="4"
+                                      placeholder="Provide detailed information about the alert"
+                                      required maxlength="2000"
+                                      oninput="if(this.value.length>2000)this.value=this.value.slice(0,2000);">{{ form.description.value|default:'' }}</textarea>
+                            <small class="text-muted">Max 2000 characters.</small>
+                            {% if form.description.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.description.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="id_image" class="form-label">Image (optional)</label>
+                            <input type="file" name="image" id="id_image"
+                                   class="form-control {% if form.image.errors %}is-invalid{% endif %}"
+                                   accept="image/png, image/jpeg">
+                            <small class="form-text text-muted">Upload a PNG or JPEG image related to the alert if available.</small>
+                            {% if form.image.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.image.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Post Alert</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
