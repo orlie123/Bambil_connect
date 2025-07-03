@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Verify Report</h5>
+                </div>
+                <div class="card-body">
+                    {% if not request.user.is_staff %}
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-circle me-2"></i>You must be an administrator to verify reports.
+                        </div>
+                    {% else %}
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="mb-0">"{{ report.title }}" Verification Status</h4>
+                            <span class="badge {% if current_status == 'verified' %}bg-success{% else %}bg-warning{% endif %} px-3 py-2">
+                                {% if current_status == 'verified' %}
+                                    <i class="fas fa-check-circle me-1"></i>Verified
+                                {% else %}
+                                    <i class="fas fa-clock me-1"></i>Pending
+                                {% endif %}
+                            </span>
+                        </div>
+                        
+                        <form method="post" action="{% url 'trustwave:verify_report' report.id %}" class="mb-3">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label class="form-label">Change Status</label>
+                                <div class="input-group">
+                                    <select class="form-select" name="verification_status" aria-label="Status selection">
+                                        <option value="verified" {% if current_status == 'verified' %}selected{% endif %}>
+                                            <i class="fas fa-check-circle me-2"></i>Verified
+                                        </option>
+                                        <option value="pending" {% if current_status == 'pending' %}selected{% endif %}>
+                                            <i class="fas fa-clock me-2"></i>Pending
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-2"></i>Save Changes
+                                </button>
+                                <a href="{% url 'trustwave:report_detail' report.pk %}" class="btn btn-outline-secondary">
+                                    <i class="fas fa-arrow-left me-2"></i>Back to Report
+                                </a>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

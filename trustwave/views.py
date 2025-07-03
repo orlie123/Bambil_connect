@@ -9,9 +9,90 @@ from django.views.decorators.csrf import csrf_protect
 from django.core.paginator import Paginator
 from django.db.models import Q, Count
 from django.utils import timezone
+from .models import Report, ReportVote, CustomUser
+from .forms import ReportForm
+
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+class ReportDetailView(DetailView):
+    model = Report
+    template_name = 'trustwave/report_detail.html'
+    context_object_name = 'report'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['can_vote'] = self.request.user.is_verified and not self.request.user.is_admin
+        context['has_voted'] = ReportVote.objects.filter(
+            user=self.request.user,
+            report=self.object
+        ).exists()
+        return context
+
+@login_required
+@require_POST
+def vote_report(request, report_id):
+    """
+    Handle voting on a report
+    Only verified users can vote
+    """
+    if not request.user.is_verified:
+        messages.error(request, 'Only verified users can vote on reports')
+        return redirect('trustwave:report_list')
+    
+    report = get_object_or_404(Report, pk=report_id)
+    user = request.user
+    
+    # Check if user has already voted
+    if ReportVote.objects.filter(user=user, report=report).exists():
+        messages.error(request, 'You have already voted on this report')
+        return redirect('trustwave:report_list')
+    
+    # Create new vote
+    ReportVote.objects.create(user=user, report=report)
+    
+    # Update report vote count and save
+    report.vote_count = report.votes.count()
+    report.save()  # This will trigger the save() method that verifies the report
+    
+    # Return simple success message
+    return JsonResponse({
+        'success': True,
+        'voted': True,
+        'vote_count': report.vote_count,
+        'message': 'Vote added'
+    })
+
+@require_POST
+@login_required
+@csrf_protect
+def toggle_report_like(request, report_id):
+    """
+    Toggle like status for a report
+    """
+    report = get_object_or_404(Report, pk=report_id)
+    user = request.user
+    
+    # Check if user has already liked this report
+    if ReportVote.objects.filter(user=user, report=report).exists():
+        # Remove like
+        ReportVote.objects.filter(user=user, report=report).delete()
+        liked = False
+    else:
+        # Add like
+        ReportVote.objects.create(user=user, report=report)
+        liked = True
+    
+    # Update report's vote count
+    report.vote_count = report.votes.count()
+    report.save()
+    
+    return JsonResponse({
+        'success': True,
+        'liked': liked,
+        'vote_count': report.vote_count
+    })
 from django_ratelimit.decorators import ratelimit
 import json
 import logging
@@ -88,7 +169,7 @@ def register_view(request):
                 'You will receive an email once approved.'
             )
             logger.info(f"New user registered: {user.email}")
-            return redirect('registration_pending')
+            return redirect('trustwave:registration_pending')
         else:
             # Log failed registration
             email = request.POST.get('email', 'unknown')
@@ -197,7 +278,7 @@ def profile_view(request):
             form.save()
             log_user_activity(request.user, 'profile_updated', 'User updated profile', request)
             messages.success(request, 'Profile updated successfully!')
-            return redirect('profile')
+            return redirect('trustwave:profile')
     else:
         form = ProfileUpdateForm(instance=request.user)
     
@@ -209,6 +290,11 @@ class ReportListView(ListView):
     template_name = 'trustwave/report_list.html'
     context_object_name = 'reports'
     paginate_by = 12
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['report_categories'] = ReportCategory.choices
+        return context
     
     def get_queryset(self):
         queryset = Report.objects.filter(is_active=True).select_related('user').order_by('-created_at')
@@ -275,32 +361,32 @@ class ReportDetailView(DetailView):
 @login_required
 @ratelimit(key='user', rate='5/m', method='POST')
 def submit_report(request):
-    """Submit a new report"""
+    """Nouvelle vue simplifiée pour soumettre un rapport"""
     if not request.user.can_post_reports:
         messages.error(request, 'You need to be a verified user to submit reports.')
         return redirect('trustwave:dashboard')
-    
+
     if request.method == 'POST':
         form = ReportForm(request.POST, request.FILES)
         if form.is_valid():
             report = form.save(commit=False)
             report.user = request.user
-            report.save()
-            
-            log_user_activity(
-                request.user, 
-                'report_created', 
-                f'Created report: {report.title}', 
-                request
-            )
-            
-            messages.success(request, 'Report submitted successfully!')
-            logger.info(f"New report created: {report.title} by {request.user.email}")
-            return redirect('trustwave:report_detail', pk=report.pk)
+            report.save()  # Les fichiers et coordonnées sont déjà gérés par le ModelForm
+            messages.success(request, 'Votre rapport a bien été enregistré !')
+            return redirect('trustwave:submit_report')
+        else:
+            # Afficher les erreurs du formulaire via messages
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")
+            messages.error(request, "Please correct the errors below and try again.")
     else:
         form = ReportForm()
-    
-    return render(request, 'trustwave/submit_report.html', {'form': form})
+
+    return render(request, 'trustwave/submit_report.html', {
+        'form': form,
+        'can_submit': request.user.can_post_reports
+    })
 
 @login_required
 @require_POST
@@ -389,73 +475,38 @@ def ask_question(request, report_id):
     return redirect('report_detail', pk=report_id)
 
 def map_view(request):
-    """Map view showing all reports with locations"""
-    # Get reports with coordinates
-    reports_with_location = Report.objects.filter(
+    """Interactive map view showing all reports"""
+    # Get all active reports with geolocation
+    reports = Report.objects.filter(
         is_active=True,
         latitude__isnull=False,
         longitude__isnull=False
     ).select_related('user')
     
-    # Create Folium map centered on Bambili
-    m = folium.Map(
-        location=[5.9631, 10.2471],  # Bambili coordinates
-        zoom_start=13,
-        tiles='OpenStreetMap'
-    )
+    # Prepare map data
+    map_reports = []
+    for report in reports:
+        map_reports.append({
+            'id': report.id,
+            'title': report.title,
+            'description': report.description,
+            'location': report.location,
+            'category': report.category,
+            'urgency': report.urgency,
+            'is_verified': report.is_verified,
+            'latitude': float(report.latitude),
+            'longitude': float(report.longitude),
+            'created_at': report.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+            'vote_count': report.vote_count,
+            'detail_url': reverse('trustwave:report_detail', kwargs={'pk': report.id})
+        })
     
-    # Add markers for each report
-    for report in reports_with_location:
-        # Determine marker color based on category
-        color_map = {
-            'electricity': 'yellow',
-            'water': 'blue',
-            'security': 'red',
-            'shops': 'green',
-            'charging_points': 'orange',
-            'transport': 'purple',
-            'health': 'pink',
-            'education': 'lightblue',
-            'other': 'gray'
-        }
-        
-        color = color_map.get(report.category, 'gray')
-        
-        # Create popup content
-        popup_content = f"""
-        <div style="width: 200px;">
-            <h6><strong>{report.title}</strong></h6>
-            <p><strong>Category:</strong> {report.get_category_display()}</p>
-            <p><strong>Urgency:</strong> {report.get_urgency_display()}</p>
-            <p><strong>Location:</strong> {report.location}</p>
-            <p><strong>Votes:</strong> {report.vote_count}</p>
-            {'<span style="color: green;">✓ Verified</span>' if report.is_verified else ''}
-            <br><br>
-            <a href="/report/{report.id}/" target="_blank" class="btn btn-primary btn-sm">
-                View Details
-            </a>
-        </div>
-        """
-        
-        folium.Marker(
-            location=[float(report.latitude), float(report.longitude)],
-            popup=folium.Popup(popup_content, max_width=250),
-            tooltip=report.title,
-            icon=folium.Icon(color=color, icon='info-sign')
-        ).add_to(m)
-    
-    # Add marker clustering for better performance
-    marker_cluster = plugins.MarkerCluster().add_to(m)
-    
-    # Convert map to HTML
-    map_html = m._repr_html_()
-    
+    # Prepare context
     context = {
-        'map_html': map_html,
-        'total_reports': reports_with_location.count(),
-        'categories': ReportCategory.choices,
-        'reports_with_location': reports_with_location,
-        'current_category': request.GET.get('category', ''),
+        'reports': reports,
+        'map_reports': map_reports,  # Données JSON sérialisables
+        'can_post_reports': request.user.can_post_reports if request.user.is_authenticated else False,
+        'recent_reports': Report.objects.filter(is_active=True).order_by('-created_at')[:5]
     }
     
     return render(request, 'trustwave/map_view.html', context)
@@ -463,6 +514,8 @@ def map_view(request):
 @staff_member_required
 def admin_dashboard(request):
     """Admin dashboard for managing users and reports"""
+    print("Hello")
+   
     # Get users by status
     pending_users = CustomUser.objects.filter(status='pending').order_by('-created_at')
     validated_users = CustomUser.objects.filter(status='validated').order_by('-created_at')
@@ -485,6 +538,7 @@ def admin_dashboard(request):
         'refused_users': refused_users,
         'recent_reports': recent_reports,
         'stats': stats,
+        'all_users': CustomUser.objects.all().order_by('-created_at'),
     }
     
     return render(request, 'trustwave/admin_dashboard.html', context)
@@ -552,4 +606,32 @@ def custom_404(request, exception):
 def custom_500(request):
     """Custom 500 error page"""
     return render(request, 'trustwave/500.html', status=500)
+
+@staff_member_required
+@login_required
+def verify_report(request, report_id):
+    """Verify or unverify a report - admins can override verification status"""
+    report = get_object_or_404(Report, pk=report_id)
+    
+    if request.method == 'POST':
+        verification_status = request.POST.get('verification_status')
+        if verification_status == 'verified':
+            report.is_verified = True
+            messages.success(request, f'Report has been verified')
+        elif verification_status == 'pending':
+            report.is_verified = False
+            messages.success(request, f'Report is now pending verification')
+        report.save(current_user=request.user)
+        return redirect('trustwave:report_detail', pk=report_id)
+    
+    context = {
+        'report': report,
+        'current_status': 'verified' if report.is_verified else 'pending'
+    }
+    return render(request, 'trustwave/verify_report.html', context)
+    
+    context = {
+        'report': report,
+        'current_status': 'verified' if report.is_verified else 'pending'
+    }
 

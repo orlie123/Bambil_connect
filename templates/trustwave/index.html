@@ -145,7 +145,7 @@
             <div class="col-lg-12 mb-4">
                 <div class="d-flex justify-content-between align-items-center">
                     <h3 class="fw-bold text-primary">Recent Reports</h3>
-                    <a href="{% url 'trustwave:report_list' %}" class="btn btn-outline-primary">
+                    <a href="{% url 'trustwave:report_list' %}" class="btn btn-primary btn-lg">
                         View All Reports <i class="fas fa-arrow-right ms-1"></i>
                     </a>
                 </div>
@@ -171,9 +171,9 @@
                                     {{ report.location }}
                                 </div>
                                 <div>
-                                    <span class="urgency-{{ report.urgency }}">
-                                        <i class="fas fa-exclamation-triangle me-1"></i>
-                                        {{ report.get_urgency_display }}
+                                    <span class="urgency-{{ report.urgency }} d-flex align-items-center" style="margin-left: 2cm;">
+                                        <i class="fas fa-exclamation-triangle"></i> &nbsp;
+                                        <span class="ms-2">{{ report.get_urgency_display }}</span>
                                     </span>
                                 </div>
                             </div>

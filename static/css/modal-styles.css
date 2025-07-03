@@ -1,0 +1,105 @@
+/* Flip Card Styles */
+.flip-card {
+    width: 100%;
+    perspective: 1000px;
+    margin-bottom: 2rem;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-front {
+    background-color: #fff;
+}
+
+.flip-card-back {
+    background-color: #f8f9fa;
+    transform: rotateY(180deg);
+}
+
+.flip-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.no-document {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 1.2rem;
+    border: 2px dashed #dee2e6;
+    border-radius: 4px;
+}
+
+/* Iframe Container */
+.iframe-container {
+    width: 100%;
+    height: 400px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Modal Content */
+.modal-content {
+    transition: all 0.3s ease;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+/* Fix modal flickering */
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+}
+
+.modal.fade:not(.show) .modal-dialog {
+    transform: scale(0.95);
+}
+
+/* Button Styles */
+.btn-success, .btn-danger {
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+}

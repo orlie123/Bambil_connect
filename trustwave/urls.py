@@ -20,15 +20,19 @@ urlpatterns = [
     path('report/<int:pk>/', views.ReportDetailView.as_view(), name='report_detail'),
     path('submit-report/', views.submit_report, name='submit_report'),
     path('vote/<int:report_id>/', views.vote_report, name='vote_report'),
-    path('ask-question/<int:report_id>/', views.ask_question, name='ask_question'),
     
     # Map
     path('map/', views.map_view, name='map_view'),
+    
+    # API
+    path('api/reports/<int:report_id>/like/', views.toggle_report_like, name='toggle_report_like'),
+    
     
     # Admin
     path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
     path('dashboard/validate-user/<int:user_id>/', views.validate_user, name='validate_user'),
     path('dashboard/refuse-user/<int:user_id>/', views.refuse_user, name='refuse_user'),
     path('dashboard/view-user-documents/<int:user_id>/', views.view_user_documents, name='view_user_documents'),
+    path('report/<int:report_id>/verify/', views.verify_report, name='verify_report'),
 ]
 

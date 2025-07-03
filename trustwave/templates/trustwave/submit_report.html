@@ -13,41 +13,110 @@
           <div class="card-body p-4">
             <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
               {% csrf_token %}
+              {{ form.as_p }}
               <div class="mb-3">
                 <label><strong>Click on the small map to set the <span style='color: #007bff;'>exact</span> location of your report (zoom in and click as close as possible):</strong></label>
+                <div class="mb-3">
+                  <label for="image" class="form-label">Image</label>
+                  {{ form.image }}
+                </div>
+                <div class="mb-3 location-controls">
+                  <button type="button" class="btn btn-primary location-button" id="useCurrentLocation">
+                    <i class="fas fa-location-arrow me-2"></i>Use Current Location
+                  </button>
+                  <div id="coordinates" class="mt-2">
+                    <input type="hidden" name="latitude" id="latitude" value="{{ form.latitude.value }}">
+                    <input type="hidden" name="longitude" id="longitude" value="{{ form.longitude.value }}">
+                  </div>
+                </div>
                 <div id="map" style="height: 200px; width: 100%; margin-bottom: 1rem;"></div>
-              </div>
-              {{ form.latitude }}
-              {{ form.longitude }}
-              {{ form.as_p }}
-              <div class="d-grid mt-4">
-                <button type="submit" class="btn btn-primary btn-lg">
-                  <i class="fas fa-paper-plane me-2"></i>Submit
-                </button>
+                <div class="mt-4">
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane me-2"></i>Submit Report
+                  </button>
+                </div>
               </div>
             </form>
             <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
             <script>
-              var map = L.map('map').setView([5.9631, 10.2471], 16); // Closer zoom on Bambili
+              // Initialisation de la carte
+              var map = L.map('map').setView([5.9631, 10.2471], 16); // Position initiale sur Bambili
+              
+              // Ajout du fond de carte
               L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '© OpenStreetMap'
               }).addTo(map);
+              
+              // Gestion du marqueur
               var marker;
+              
+              // Fonction pour mettre à jour les coordonnées dans le formulaire
+              function updateCoordinates(lat, lng) {
+                // Limiter la précision à 6 décimales
+                var latRounded = parseFloat(lat).toFixed(6);
+                var lngRounded = parseFloat(lng).toFixed(6);
+                
+                // Mettre à jour les champs du formulaire
+                document.getElementById('latitude').value = latRounded;
+                document.getElementById('longitude').value = lngRounded;
+              }
+              
+              // Fonction pour placer ou déplacer le marqueur
               function setMarker(lat, lng) {
                 if (marker) {
                   marker.setLatLng([lat, lng]);
                 } else {
                   marker = L.marker([lat, lng], {draggable: true}).addTo(map);
-                  marker.on('dragend', function(e) {
-                    var pos = marker.getLatLng();
-                    document.getElementById('id_latitude').value = pos.lat;
-                    document.getElementById('id_longitude').value = pos.lng;
+                  
+                  // Écouter les déplacements du marqueur
+                  marker.on('dragend', function() {
+                    var position = marker.getLatLng();
+                    updateCoordinates(position.lat, position.lng);
                   });
                 }
-                document.getElementById('id_latitude').value = lat;
-                document.getElementById('id_longitude').value = lng;
+                updateCoordinates(lat, lng);
               }
+              
+              // Initialiser le marqueur avec les coordonnées existantes si elles sont présentes
+              document.addEventListener('DOMContentLoaded', function() {
+                var lat = parseFloat('{{ form.latitude.value }}');
+                var lng = parseFloat('{{ form.longitude.value }}');
+                
+                if (!isNaN(lat) && !isNaN(lng)) {
+                  setMarker(lat, lng);
+                } else {
+                  // Place un marqueur par défaut à Bambili si aucune position n'est définie
+                  setMarker(5.9631, 10.2471);
+                }
+              });
+              
+              // Bouton pour utiliser la position actuelle
+              document.getElementById('useCurrentLocation').addEventListener('click', function() {
+                if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(function(position) {
+                    // Limiter la précision à 6 décimales
+                    var lat = parseFloat(position.coords.latitude).toFixed(6);
+                    var lng = parseFloat(position.coords.longitude).toFixed(6);
+                    
+                    // Placer le marqueur et centrer la carte
+                    setMarker(lat, lng);
+                    map.setView([lat, lng], 16); // Zoom 16 pour une meilleure précision
+                    
+                    // Afficher un popup avec les coordonnées
+                    marker.bindPopup('Votre position actuelle: ' + 
+                      'Lat: ' + lat + '<br>' +
+                      'Lng: ' + lng).openPopup();
+                  }, function(error) {
+                    console.error('Erreur de géolocalisation:', error);
+                    alert('Impossible d\'obtenir votre position. Veuillez sélectionner un point sur la carte.');
+                  });
+                } else {
+                  alert('La géolocalisation n\'est pas supportée par votre navigateur.');
+                }
+              });
+              
+              // Cliquer sur la carte pour placer le marqueur
               map.on('click', function(e) {
                 setMarker(e.latlng.lat, e.latlng.lng);
               });

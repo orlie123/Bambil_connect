@@ -1,0 +1,118 @@
+/* Category Colors and Icons */
+.category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    color: white;
+    background-color: #333; /* Default dark background */
+}
+
+/* Electricity */
+.category-badge.electricity,
+.category-badge.category-electricity {
+    background-color: #f39c12;
+}
+.category-badge.electricity::before,
+.category-badge.category-electricity::before {
+    content: '\f0e7'; /* bolt icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Water */
+.category-badge.water,
+.category-badge.category-water {
+    background-color: #3498db;
+}
+.category-badge.water::before,
+.category-badge.category-water::before {
+    content: '\f773'; /* water icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Shops & Services */
+.category-badge.shops,
+.category-badge.category-shops {
+    background-color: #e67e22;
+}
+.category-badge.shops::before,
+.category-badge.category-shops::before {
+    content: '\f07a'; /* shopping cart icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Charging Points */
+.category-badge.charging_points,
+.category-badge.category-charging_points {
+    background-color: #2ecc71;
+}
+.category-badge.charging_points::before,
+.category-badge.category-charging_points::before {
+    content: '\f5e1'; /* battery full icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Security */
+.category-badge.security,
+.category-badge.category-security {
+    background-color: #e74c3c;
+}
+.category-badge.security::before,
+.category-badge.category-security::before {
+    content: '\f023'; /* shield icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Transport */
+.category-badge.transport,
+.category-badge.category-transport {
+    background-color: #9b59b6;
+}
+.category-badge.transport::before,
+.category-badge.category-transport::before {
+    content: '\f1b9'; /* bus icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Health Services */
+.category-badge.health,
+.category-badge.category-health {
+    background-color: #2980b9;
+}
+.category-badge.health::before,
+.category-badge.category-health::before {
+    content: '\f0f0'; /* ambulance icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Education */
+.category-badge.education,
+.category-badge.category-education {
+    background-color: #34495e;
+}
+.category-badge.education::before,
+.category-badge.category-education::before {
+    content: '\f19d'; /* graduation cap icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Other */
+.category-badge.other,
+.category-badge.category-other {
+    background-color: #95a5a6;
+}
+.category-badge.other::before,
+.category-badge.category-other::before {
+    content: '\f05a'; /* question circle icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}

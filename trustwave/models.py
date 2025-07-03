@@ -150,8 +150,21 @@ class CustomUser(AbstractUser):
         return self.is_verified and self.status != AccountStatus.SUSPENDED
     
     @property
+    def get_initials(self):
+        """Get user's initials from full name (max 2 characters)"""
+        if not self.full_name:
+            return '??'
+        parts = self.full_name.split()
+        initials = ''.join(part[0].upper() for part in parts if part)
+        return initials[:2] if len(initials) >= 2 else (initials + '?')[:2]
+
+
+    @property
     def can_vote(self):
         return self.is_verified and self.status != AccountStatus.SUSPENDED
+    
+    def is_verified(self):
+        return self.status == AccountStatus.VALIDATED
 
 class Report(models.Model):
     title = models.CharField(max_length=255)
@@ -169,6 +182,18 @@ class Report(models.Model):
         max_length=10, 
         choices=UrgencyLevel.choices,
         default=UrgencyLevel.LOW
+    )
+    
+    # Geolocation
+    latitude = models.FloatField(
+        null=True,
+        blank=True,
+        help_text="Latitude coordinate of the report location"
+    )
+    longitude = models.FloatField(
+        null=True,
+        blank=True,
+        help_text="Longitude coordinate of the report location"
     )
     
     # Media attachments
@@ -222,11 +247,24 @@ class Report(models.Model):
     
     @property
     def verification_threshold_met(self):
+        """Check if verification threshold is met (5 votes)"""
         return self.vote_count >= 5
     
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse('report_detail', kwargs={'pk': self.pk})
+
+    def save(self, *args, **kwargs):
+        current_user = kwargs.pop('current_user', None)
+        # Correction : on ne touche pas aux relations si l'objet n'a pas encore d'ID
+        if self.pk is None:
+            super().save(*args, **kwargs)
+            return
+        if current_user and current_user.is_admin:
+            pass  # Admin peut forcer la vérification
+        else:
+            self.is_verified = self.verification_threshold_met
+        super().save(*args, **kwargs)
 
 class ReportVote(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)

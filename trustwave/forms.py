@@ -98,6 +98,105 @@ class SecureRegistrationForm(UserCreationForm):
         model = CustomUser
         fields = ('full_name', 'email', 'phone_number', 'profession', 'neighborhood', 
                  'id_card', 'supporting_doc', 'password1', 'password2')
+
+class ReportForm(forms.ModelForm):
+    """Form for submitting reports with geolocation"""
+    
+    title = forms.CharField(
+        max_length=255,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter a descriptive title',
+            'required': True,
+        })
+    )
+    
+    description = forms.CharField(
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Describe the situation in detail',
+            'rows': 4,
+            'required': True,
+        })
+    )
+    
+    location = forms.CharField(
+        max_length=255,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter specific location (e.g., Mile 4 Junction)',
+            'required': True,
+        })
+    )
+    
+    category = forms.ChoiceField(
+        choices=ReportCategory.choices,
+        widget=forms.Select(attrs={
+            'class': 'form-control',
+            'required': True,
+        })
+    )
+    
+    urgency = forms.ChoiceField(
+        choices=UrgencyLevel.choices,
+        widget=forms.Select(attrs={
+            'class': 'form-control',
+            'required': True,
+        })
+    )
+    
+    image = forms.ImageField(
+        required=False,
+        widget=forms.FileInput(attrs={
+            'class': 'form-control',
+            'accept': 'image/*',
+        })
+    )
+    
+    latitude = forms.DecimalField(
+        max_digits=9,
+        decimal_places=6,
+        required=False,
+        widget=forms.HiddenInput(attrs={'step': '0.000001'}),
+        help_text='Latitude coordinates (maximum 9 digits including 6 decimal places)'
+    )
+    
+    longitude = forms.DecimalField(
+        max_digits=9,
+        decimal_places=6,
+        required=False,
+        widget=forms.HiddenInput(attrs={'step': '0.000001'}),
+        help_text='Longitude coordinates (maximum 9 digits including 6 decimal places)'
+    )
+    
+    class Meta:
+        model = Report
+        fields = ('title', 'description', 'location', 'category', 'urgency', 'image', 'latitude', 'longitude')
+    
+    def clean_description(self):
+        description = self.cleaned_data.get('description')
+        if description:
+            # Sanitize HTML input
+            description = bleach.clean(description, tags=[], attributes={}, styles=[], strip=True)
+        return description
+    
+    def clean_location(self):
+        location = self.cleaned_data.get('location')
+        if location:
+            # Basic validation for location format
+            if len(location) < 5:
+                raise forms.ValidationError('Please provide a more specific location.')
+        return location
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        # If latitude/longitude are provided, ensure both are present
+        if cleaned_data.get('latitude') or cleaned_data.get('longitude'):
+            if not (cleaned_data.get('latitude') and cleaned_data.get('longitude')):
+                raise forms.ValidationError('Both latitude and longitude must be provided.')
+        
+        return cleaned_data
     
     def clean_full_name(self):
         full_name = self.cleaned_data.get('full_name')

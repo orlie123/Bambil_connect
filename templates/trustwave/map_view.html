@@ -77,106 +77,71 @@
     
     <div class="row">
         <div class="col-lg-9">
-            <!-- Map Controls -->
-            <div class="map-controls">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Filter Reports</h6>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button class="btn btn-sm btn-outline-primary filter-btn active" data-category="all">
-                                All Reports
-                            </button>
-                            <button class="btn btn-sm btn-outline-danger filter-btn" data-category="electricity">
-                                <i class="fas fa-bolt me-1"></i>Electricity
-                            </button>
-                            <button class="btn btn-sm btn-outline-info filter-btn" data-category="water">
-                                <i class="fas fa-tint me-1"></i>Water
-                            </button>
-                            <button class="btn btn-sm btn-outline-warning filter-btn" data-category="security">
-                                <i class="fas fa-shield-alt me-1"></i>Security
-                            </button>
-                            <button class="btn btn-sm btn-outline-success filter-btn" data-category="transport">
-                                <i class="fas fa-car me-1"></i>Transport
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <div class="form-check form-switch d-inline-block me-3">
-                            <input class="form-check-input" type="checkbox" id="verifiedOnly" checked>
-                            <label class="form-check-label" for="verifiedOnly">
-                                Verified Only
-                            </label>
-                        </div>
-                        <button class="btn btn-sm btn-outline-secondary" id="refreshMap">
-                            <i class="fas fa-sync-alt me-1"></i>Refresh
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
             <!-- Map Container -->
             <div id="map"></div>
         </div>
         
         <div class="col-lg-3">
             <!-- Legend -->
-            <div class="legend mb-4">
-                <h6 class="fw-bold mb-3">
-                    <i class="fas fa-info-circle me-2"></i>Map Legend
-                </h6>
-                
-                <div class="legend-item">
-                    <div class="legend-color bg-success"></div>
-                    <span>Verified Reports</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color bg-warning"></div>
-                    <span>Pending Verification</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color bg-danger"></div>
-                    <span>High Urgency</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color bg-info"></div>
-                    <span>Medium Urgency</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color bg-secondary"></div>
-                    <span>Low Urgency</span>
-                </div>
-                
-                <hr>
-                
-                <h6 class="fw-bold mb-2">Categories</h6>
-                <div class="legend-item">
-                    <i class="fas fa-bolt text-danger me-2"></i>
-                    <span>Electricity</span>
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-tint text-info me-2"></i>
-                    <span>Water</span>
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-shield-alt text-warning me-2"></i>
-                    <span>Security</span>
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-car text-success me-2"></i>
-                    <span>Transport</span>
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-store text-primary me-2"></i>
-                    <span>Shops & Services</span>
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-battery-half text-secondary me-2"></i>
-                    <span>Charging Points</span>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h6 class="fw-bold mb-3">
+                        <i class="fas fa-info-circle me-2"></i>Map Legend
+                    </h6>
+                    
+                    <div class="legend-item mb-2">
+                        <div class="legend-color bg-success"></div>
+                        <span>Verified Reports</span>
+                    </div>
+                    <div class="legend-item mb-2">
+                        <div class="legend-color bg-warning"></div>
+                        <span>Pending Verification</span>
+                    </div>
+                    <div class="legend-item mb-2">
+                        <div class="legend-color bg-danger"></div>
+                        <span>High Urgency</span>
+                    </div>
+                    <div class="legend-item mb-2">
+                        <div class="legend-color bg-info"></div>
+                        <span>Medium Urgency</span>
+                    </div>
+                    <div class="legend-item mb-2">
+                        <div class="legend-color bg-secondary"></div>
+                        <span>Low Urgency</span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <h6 class="fw-bold mb-2">Categories</h6>
+                    <div class="legend-item mb-2">
+                        <i class="fas fa-bolt text-danger me-2"></i>
+                        <span>Electricity</span>
+                    </div>
+                    <div class="legend-item mb-2">
+                        <i class="fas fa-tint text-info me-2"></i>
+                        <span>Water</span>
+                    </div>
+                    <div class="legend-item mb-2">
+                        <i class="fas fa-shield-alt text-warning me-2"></i>
+                        <span>Security</span>
+                    </div>
+                    <div class="legend-item mb-2">
+                        <i class="fas fa-car text-success me-2"></i>
+                        <span>Transport</span>
+                    </div>
+                    <div class="legend-item mb-2">
+                        <i class="fas fa-store text-primary me-2"></i>
+                        <span>Shops & Services</span>
+                    </div>
+                    <div class="legend-item mb-2">
+                        <i class="fas fa-battery-half text-secondary me-2"></i>
+                        <span>Charging Points</span>
+                    </div>
                 </div>
             </div>
             
             <!-- Recent Reports -->
-            <div class="card border-0 shadow-sm">
+            <div class="card">
                 <div class="card-header bg-white">
                     <h6 class="fw-bold mb-0">
                         <i class="fas fa-clock me-2"></i>Recent Reports
@@ -228,194 +193,141 @@
 
 {% block extra_js %}
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script id="map_reports_data" type="application/json">
+    {{ map_reports|json_script:"map_reports_data" }}
+</script>
 <script>
-// Initialize map centered on Bambili
-const map = L.map('map').setView([5.9631, 10.2471], 14);
+    // Initialize map centered on Bambili
+    const map = L.map('map').setView([5.9631, 10.2471], 14);
 
-// Add OpenStreetMap tiles
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: 'OpenStreetMap'
+    }).addTo(map);
 
-// Store all markers for filtering
-let allMarkers = [];
-let markerGroup = L.layerGroup().addTo(map);
+    // Initialize markers layer group
+    let markers = L.layerGroup();
 
-// Sample report data (in production, this would come from Django context)
-const reports = [
-    {% for report in map_reports %}
-    {
-        id: {{ report.id }},
-        title: "{{ report.title|escapejs }}",
-        description: "{{ report.description|truncatewords:20|escapejs }}",
-        location: "{{ report.location|escapejs }}",
-        category: "{{ report.category }}",
-        urgency: "{{ report.urgency }}",
-        isVerified: {{ report.is_verified|yesno:"true,false" }},
-        latitude: {{ report.latitude|default:"5.9631" }},
-        longitude: {{ report.longitude|default:"10.2471" }},
-        createdAt: "{{ report.created_at|date:'M d, Y H:i' }}",
-        voteCount: {{ report.vote_count }},
-        detailUrl: "{% url 'trustwave:report_detail' report.pk %}"
-    }{% if not forloop.last %},{% endif %}
-    {% endfor %}
-];
+    // Function to create marker icon based on report status
+    function createMarkerIcon(report) {
+        let icon = L.icon({
+            iconUrl: '/static/images/marker-icon.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34]
+        });
 
-// Category colors and icons
-const categoryConfig = {
-    'electricity': { color: '#dc3545', icon: 'bolt' },
-    'water': { color: '#17a2b8', icon: 'tint' },
-    'security': { color: '#ffc107', icon: 'shield-alt' },
-    'transport': { color: '#28a745', icon: 'car' },
-    'shops_services': { color: '#007bff', icon: 'store' },
-    'charging_points': { color: '#6c757d', icon: 'battery-half' }
-};
-
-// Urgency colors
-const urgencyColors = {
-    'high': '#dc3545',
-    'medium': '#ffc107',
-    'low': '#6c757d'
-};
-
-// Create custom marker icon
-function createMarkerIcon(report) {
-    const category = categoryConfig[report.category] || categoryConfig['shops_services'];
-    const color = report.isVerified ? '#28a745' : urgencyColors[report.urgency];
-    
-    return L.divIcon({
-        html: `<div style="background-color: ${color}; width: 25px; height: 25px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-${category.icon}" style="color: white; font-size: 12px;"></i>
-               </div>`,
-        className: 'custom-marker',
-        iconSize: [25, 25],
-        iconAnchor: [12, 12]
-    });
-}
-
-// Create popup content
-function createPopupContent(report) {
-    const statusBadge = report.isVerified 
-        ? '<span class="badge bg-success"><i class="fas fa-check me-1"></i>Verified</span>'
-        : '<span class="badge bg-warning"><i class="fas fa-clock me-1"></i>Pending</span>';
-    
-    const urgencyBadge = `<span class="badge" style="background-color: ${urgencyColors[report.urgency]}">${report.urgency.toUpperCase()}</span>`;
-    
-    return `
-        <div class="report-popup">
-            <h6>${report.title}</h6>
-            <p class="mb-2">${report.description}</p>
-            <p class="mb-2"><i class="fas fa-map-marker-alt me-1"></i>${report.location}</p>
-            <div class="mb-2">
-                ${statusBadge}
-                ${urgencyBadge}
-            </div>
-            <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">${report.createdAt}</small>
-                <a href="${report.detailUrl}" class="btn btn-sm btn-primary">View Details</a>
-            </div>
-        </div>
-    `;
-}
-
-// Add markers to map
-function addMarkersToMap(reportsToShow = reports) {
-    // Clear existing markers
-    markerGroup.clearLayers();
-    allMarkers = [];
-    
-    reportsToShow.forEach(report => {
-        const marker = L.marker([report.latitude, report.longitude], {
-            icon: createMarkerIcon(report)
-        }).bindPopup(createPopupContent(report));
-        
-        marker.reportData = report;
-        allMarkers.push(marker);
-        markerGroup.addLayer(marker);
-    });
-}
-
-// Filter functionality
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        // Update active button
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        
-        const category = this.dataset.category;
-        const verifiedOnly = document.getElementById('verifiedOnly').checked;
-        
-        let filteredReports = reports;
-        
-        // Filter by category
-        if (category !== 'all') {
-            filteredReports = filteredReports.filter(report => report.category === category);
-        }
-        
-        // Filter by verification status
-        if (verifiedOnly) {
-            filteredReports = filteredReports.filter(report => report.isVerified);
-        }
-        
-        addMarkersToMap(filteredReports);
-    });
-});
-
-// Verified only toggle
-document.getElementById('verifiedOnly').addEventListener('change', function() {
-    const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
-    
-    let filteredReports = reports;
-    
-    if (activeCategory !== 'all') {
-        filteredReports = filteredReports.filter(report => report.category === activeCategory);
-    }
-    
-    if (this.checked) {
-        filteredReports = filteredReports.filter(report => report.isVerified);
-    }
-    
-    addMarkersToMap(filteredReports);
-});
-
-// Refresh button
-document.getElementById('refreshMap').addEventListener('click', function() {
-    location.reload();
-});
-
-// Report link click handlers (zoom to marker)
-document.querySelectorAll('.report-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const lat = parseFloat(this.dataset.lat);
-        const lng = parseFloat(this.dataset.lng);
-        
-        if (lat && lng) {
-            map.setView([lat, lng], 16);
-            
-            // Find and open the corresponding marker popup
-            allMarkers.forEach(marker => {
-                if (marker.getLatLng().lat === lat && marker.getLatLng().lng === lng) {
-                    marker.openPopup();
-                }
+        if (!report.is_verified) {
+            icon = L.icon({
+                iconUrl: '/static/images/marker-icon-pending.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34]
             });
         }
-    });
-});
 
-// Initialize map with all markers
-addMarkersToMap();
-
-// Add click handler to add new reports (if user can post)
-{% if user.can_post_reports %}
-map.on('click', function(e) {
-    if (confirm('Would you like to submit a report for this location?')) {
-        const lat = e.latlng.lat;
-        const lng = e.latlng.lng;
-        window.location.href = `{% url 'trustwave:submit_report' %}?lat=${lat}&lng=${lng}`;
+        return icon;
     }
-});
-{% endif %}
+
+    // Function to create popup content
+    function createPopupContent(report) {
+        return `
+            <div class="report-popup">
+                <h6>${report.title}</h6>
+                <p class="mb-2">${report.description}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge bg-${report.is_verified ? 'success' : 'warning'}">
+                        ${report.is_verified ? 'Verified' : 'Pending'}
+                    </span>
+                    <span class="text-muted small">
+                        ${report.created_at}
+                    </span>
+                </div>
+                <div class="mt-2">
+                    <a href="${report.detail_url}" class="btn btn-sm btn-primary">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+
+    // Function to add markers to map
+    function addMarkersToMap(reportsToShow = []) {
+        // Clear existing markers
+        if (markers) {
+            map.removeLayer(markers);
+        }
+
+        // Create a new layer group for markers
+        markers = L.layerGroup();
+
+        // Add markers for filtered reports
+        reportsToShow.forEach(report => {
+            if (report.latitude && report.longitude) {
+                const marker = L.marker([report.latitude, report.longitude], {
+                    icon: createMarkerIcon(report)
+                });
+
+                marker.bindPopup(createPopupContent(report));
+                markers.addLayer(marker);
+            }
+        });
+
+        // Add markers to map
+        markers.addTo(map);
+    }
+
+    // Initialize with all reports
+    const reports = JSON.parse(document.getElementById('map_reports_data').textContent);
+    console.log('Reports data:', reports);
+    addMarkersToMap(reports);
+
+    // Handle report link clicks to center map
+    document.querySelectorAll('.report-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lat = parseFloat(this.dataset.lat);
+            const lng = parseFloat(this.dataset.lng);
+
+            if (!isNaN(lat) && !isNaN(lng)) {
+                map.setView([lat, lng], 16);
+                // Find and open the popup for this report
+                map.eachLayer(function(layer) {
+                    if (layer instanceof L.Marker && 
+                        layer.getLatLng().equals([lat, lng])) {
+                        layer.openPopup();
+                    }
+                });
+            }
+            // Proceed with the original link action
+            setTimeout(() => window.location.href = this.href, 1000);
+        });
+    });
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Update active button
+            document.querySelector('.filter-btn.active')?.classList.remove('active');
+            this.classList.add('active');
+
+            // Get filter type
+            const filterType = this.dataset.filter;
+
+            // Filter reports
+            let filteredReports = [...reports];
+
+            if (filterType === 'verified') {
+                filteredReports = filteredReports.filter(r => r.is_verified);
+            } else if (filterType === 'pending') {
+                filteredReports = filteredReports.filter(r => !r.is_verified);
+            }
+
+            // Update markers on map
+            addMarkersToMap(filteredReports);
+        });
+    });
 </script>
 {% endblock %}
-

@@ -1,0 +1,110 @@
+/* Button styles to ensure text remains white */
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger,
+.btn-light,
+.btn-dark {
+    color: #fff !important;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #43b97f;
+    border-color: #43b97f;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    color: white !important;
+}
+
+.btn-primary:active {
+    background-color: #1e7e34;
+    border-color: #1e7e34;
+    color: white !important;
+}
+
+/* Green outline button */
+.btn-outline-success {
+    color: #43b97f;
+    border-color: #43b97f;
+    background-color: transparent;
+}
+
+.btn-outline-success:hover {
+    color: white !important;
+    background-color: #43b97f;
+    border-color: #43b97f;
+}
+
+/* Disabled button styles */
+.btn-secondary.disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.btn-secondary.disabled:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* Button text color */
+.btn:not(:disabled):not(.disabled) {
+    color: white !important;
+}
+
+/* Card width limit */
+.max-width-640 {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-success:hover,
+.btn-info:hover,
+.btn-warning:hover,
+.btn-danger:hover,
+.btn-light:hover,
+.btn-dark:hover {
+    color: #fff !important;
+}
+
+/* Ensure text remains white in all states */
+.btn-primary:active,
+.btn-secondary:active,
+.btn-success:active,
+.btn-info:active,
+.btn-warning:active,
+.btn-danger:active,
+.btn-light:active,
+.btn-dark:active {
+    color: #fff !important;
+}
+
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-success:focus,
+.btn-info:focus,
+.btn-warning:focus,
+.btn-danger:focus,
+.btn-light:focus,
+.btn-dark:focus {
+    color: #fff !important;
+}
+
+/* Badge styles to ensure text remains white */
+.badge {
+    color: #fff !important;
+}
+
+.badge:hover {
+    color: #fff !important;
+}
