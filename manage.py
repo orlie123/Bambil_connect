@@ -19,5 +19,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()  # <-- This should be just main(), not main().manage.py
+    main()  # 
 
